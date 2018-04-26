@@ -5,10 +5,25 @@
   --color4: #E9E581;
   --color5: #E9E581;
 
+  /* Dark Grey */
+  --body-background: #2B2B2B;
+  --header-footer-background: #2B2B2B;
+
+  /* White-ish */
+  --secondary-color: #F6F6F6;
+  --post-background-color: #F6F6F6;
+  --postcard-background-color: #F6F6F6;
+  --single-post-background: #F6F6F6;
+  --header-text-color: #F6F6F6;
+  --navbar-text-color: #F6F6F6;
+
   /* Canadian red */
   --post-card-title: #C40C0C;
   --site-footer-bg: #C40C0C;
-  --link-color:#C40C0C;
+  --link-color: #C40C0C;
+  --post-date-color: #C40C0C;
+  --floating-header-color: #C40C0C;
+  --progress-color: #C40C0C;
 
   --font-family-title:"Merriweather Sans", sans-serif;
   --font-family-text:"Merriweather Sans",  serif;
