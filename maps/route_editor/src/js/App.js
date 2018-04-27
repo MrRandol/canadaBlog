@@ -25,7 +25,9 @@ class App extends Component {
     return (
       <div>
         <div className="map" id="map"></div>
-        <Route features={this.state.features} />
+        <div className="route-list">
+          <Route features={this.state.features} />
+        </div>
       </div>
     );
   }

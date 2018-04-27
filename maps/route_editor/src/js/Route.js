@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Collapsible, CollapsibleItem } from 'react-materialize'
 
 class Route extends Component {
 
@@ -9,13 +9,15 @@ class Route extends Component {
 
   render() {
     const listItems = this.props.features.map((feature) =>
-      <li key={"feature_" + feature.get("index")}>{feature.get("index") + "/ " + feature.get("name")}</li>
+      <CollapsibleItem key={"feature_" + feature.get("index")} header={feature.get("index") + "/ " + feature.get("name")}>
+        Lorem ipsum dolor sit amet.
+      </CollapsibleItem>
     );
 
     return (
-      <ul>
+      <Collapsible popout accordion>
         {listItems}
-      </ul>
+      </Collapsible>
     );
   }
 }
