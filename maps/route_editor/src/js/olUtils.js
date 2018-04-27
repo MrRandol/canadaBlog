@@ -1,6 +1,8 @@
+import uid from 'uid'
 import * as ol from 'openlayers'
 
 import * as Style from './style.js'
+
 
 export function createMap() {
    // Base Layer
@@ -52,6 +54,7 @@ export function createMap() {
 
     draw.on('drawend', (event) => {
       if (event && event.feature) {
+        event.feature.setId(uid())
         event.feature.set("index", drawing_source.getFeatures().length+1)
       }
     })
@@ -63,7 +66,7 @@ export function createMap() {
       fill_auto_route_layer(features, auto_route)
     })
 
-    return drawing_route
+    return {map, drawing_route}
 }
 
 

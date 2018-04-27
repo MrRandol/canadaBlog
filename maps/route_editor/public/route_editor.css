@@ -12,3 +12,7 @@ body {
   height: 40vh;
   width: 100vw;
 }
+
+#route-list li:hover, #route-list li:hover div.collapsible-header {
+  background-color: rgba(255, 109, 0, 0.1);
+}
