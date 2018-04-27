@@ -13,9 +13,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    var drawing_route = createMap()
+    var drawing_route_layer = createMap()
 
-    var drawing_source = drawing_route.getSource()
+    var drawing_source = drawing_route_layer.getSource()
     drawing_source.on('change', () => {
      this.setState({features: drawing_source.getFeatures()})
     })

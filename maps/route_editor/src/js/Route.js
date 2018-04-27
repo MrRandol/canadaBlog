@@ -9,7 +9,7 @@ class Route extends Component {
 
   render() {
     const listItems = this.props.features.map((feature) =>
-      <li>{feature.get("index") + "/ " + feature.get("name")}</li>
+      <li key={"feature_" + feature.get("index")}>{feature.get("index") + "/ " + feature.get("name")}</li>
     );
 
     return (

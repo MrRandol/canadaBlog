@@ -50,6 +50,12 @@ export function createMap() {
     map.addInteraction(draw);
     map.addInteraction(snap);
 
+    draw.on('drawend', (event) => {
+      if (event && event.feature) {
+        event.feature.set("index", drawing_source.getFeatures().length+1)
+      }
+    })
+
 
     // Listeners
     drawing_source.on('change', () => {
