@@ -90,7 +90,7 @@ export function fill_auto_route_layer(features, auto_route) {
   auto_route.setSource(source)
 }
 
-function featureSortingFunction(f1, f2) {
+export function featureSortingFunction(f1, f2) {
   var i1 = f1.get("index") || 0
   var i2 = f2.get("index") || 0
   return i1 - i2

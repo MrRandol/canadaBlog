@@ -1,0 +1,14 @@
+body {
+  overflow: hidden;
+}
+
+#map {
+  height: 60vh;
+  width: 100vw;
+}
+
+#route-list {
+  overflow-y: auto;
+  height: 40vh;
+  width: 100vw;
+}

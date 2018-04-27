@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div>
         <div className="map" id="map"></div>
-        <div className="route-list">
+        <div id="route-list">
           <Route features={this.state.features} />
         </div>
       </div>
