@@ -54,7 +54,7 @@ function textFromFeature(feature, hover = false) {
     rotation: -35 * Math.PI / 180,
     fill: fill,
     stroke: text_stroke,
-    text: feature.get("name") + "(" + feature.get("index") + ")"
+    text: feature.get("index") + ". " + feature.get("name")
   })
 }
 
