@@ -1,0 +1,14 @@
+version: '3'
+services:
+  kml_upload:
+    container_name: kml_upload
+    build: maps/kml_upload
+    ports:
+     - "8080:8080"
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins:lts
+    ports:
+      - "9090:8080"
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
