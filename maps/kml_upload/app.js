@@ -8,6 +8,18 @@ const upload_path = process.env.UPLOAD_PATH || 'route.kml'
 
 app.use(bodyParser.text())
 
+app.get('/route', function (req, res) {
+  fs.readFile(upload_path, (err, data) => {
+          // throws an error, you could also catch it here
+      if (err) {
+        res.status(500).send(err)
+      }
+
+      // success case, the file was saved
+      res.send(data)
+  })
+})
+
 app.post('/route', function (req, res) {
 
   let kml_content = req.body

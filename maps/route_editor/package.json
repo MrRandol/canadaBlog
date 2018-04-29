@@ -6,7 +6,9 @@
     "openlayers": "^4.6.5",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
+    "react-materialize": "^2.2.0",
+    "react-scripts": "1.1.4",
+    "uid": "0.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
