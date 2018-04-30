@@ -1,0 +1,58 @@
+# Mitigate httpoxy attack (see README for details)
+proxy_set_header Proxy "";
+
+upstream ghost {
+  server ghost:2368;
+}
+
+upstream jenkins {
+  server localhost:${JENKINS_PORT};
+}
+
+upstream kml_upload {
+  server localhost:${KML_UPLOAD_PORT}  
+}
+
+server {
+  server_name ${NGINX_HOST}; # Should be replaces by real hostname when got it
+  listen ${NGINX_PORT};
+
+  location ~ /canada {
+
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_buffering off;
+
+    proxy_pass http://ghost;
+  }
+
+  location ~ /jenkins {
+
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_buffering off;
+
+    proxy_pass http://jenkins;
+  }
+
+  location ~ /route_edit {
+    # TODO : handle access restriction
+    root ${ROUTE_EDITOR_DATA}
+  }
+
+  location /route {
+    # TODO : handle access restriction
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_buffering off;
+
+    proxy_pass http://kml_upload;
+  }
+
+  location / {
+    rewrite ^/(.*)$ /canada/$1 last;
+  }
+}
