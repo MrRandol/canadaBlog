@@ -2,22 +2,22 @@
 proxy_set_header Proxy "";
 
 upstream ghost {
-  server ghost:2368;
+  server ghost:${GHOST_PORT};
 }
 
 upstream jenkins {
-  server localhost:${JENKINS_PORT};
+  server jenkins:${JENKINS_PORT};
 }
 
 upstream kml_upload {
-  server localhost:${KML_UPLOAD_PORT}  
+  server kml_upload:${KML_UPLOAD_PORT};
 }
 
 server {
   server_name ${NGINX_HOST}; # Should be replaces by real hostname when got it
   listen ${NGINX_PORT};
 
-  location ~ /canada {
+  location /canada {
 
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $http_host;
@@ -27,7 +27,7 @@ server {
     proxy_pass http://ghost;
   }
 
-  location ~ /jenkins {
+  location /jenkins {
 
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $http_host;
@@ -37,12 +37,14 @@ server {
     proxy_pass http://jenkins;
   }
 
-  location ~ /route_edit {
+  location /route_edit {
     # TODO : handle access restriction
-    root ${ROUTE_EDITOR_DATA}
+    root ${ROUTE_EDITOR_DATA_TARGET};
+    index index.html;
+    try_files $uri $uri/ /route_edit/index.html;
   }
 
-  location /route {
+  location = /route {
     # TODO : handle access restriction
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $http_host;
@@ -52,7 +54,7 @@ server {
     proxy_pass http://kml_upload;
   }
 
-  location / {
-    rewrite ^/(.*)$ /canada/$1 last;
+  location = / {
+    return 403;
   }
 }

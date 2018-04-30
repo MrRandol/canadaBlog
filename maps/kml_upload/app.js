@@ -13,10 +13,11 @@ app.get('/route', function (req, res) {
           // throws an error, you could also catch it here
       if (err) {
         res.status(500).send(err)
+      } else {
+        // success case, the file was saved
+        res.send(data)
       }
 
-      // success case, the file was saved
-      res.send(data)
   })
 })
 
@@ -30,10 +31,11 @@ app.post('/route', function (req, res) {
       // throws an error, you could also catch it here
       if (err) {
         res.status(500).send(err)
+      } else {
+        // success case, the file was saved
+        res.send('OK')
       }
 
-      // success case, the file was saved
-      res.send('OK')
   });
 })
 

@@ -5,6 +5,7 @@ services:
     image: nginx
     volumes:
      - ./reverse_proxy/reverse_proxy.template:/etc/nginx/conf.d/mysite.template
+     - ${ROUTE_EDITOR_DATA}:${ROUTE_EDITOR_DATA_TARGET}/route_edit:ro
     ports:
      - "80:80"
     environment:
@@ -12,29 +13,33 @@ services:
      - NGINX_PORT=80
      - JENKINS_PORT=${JENKINS_PORT}
      - KML_UPLOAD_PORT=${KML_UPLOAD_PORT}
-     - ROUTE_EDITOR_DATA=${ROUTE_EDITOR_DATA}
-    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+     - ROUTE_EDITOR_DATA_TARGET=${ROUTE_EDITOR_DATA_TARGET}
+    command: sh -c "envsubst \"`env | awk -F = '{printf \" $$%s\", $$1}'`\" < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
 
   jenkins:
     container_name: jenkins
     image: jenkins/jenkins:lts
-    ports:
-      - "${JENKINS_PORT}:8080"
     volumes:
       - ${JENKINS_SHARED_FOLDER}:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JENKINS_OPTS="--prefix=/jenkins"
 
   kml_upload:
     container_name: kml_upload
     build: maps/kml_upload
-    ports:
-     - "${KML_UPLOAD_PORT}:8080"
+    volumes:
+      - ${KML_UPLOAD_SHARED_FOLDER}:${KML_UPLOAD_TARGET_PATH}
+    environment:
+      PORT=${KML_UPLOAD_PORT}
+      UPLOAD_PATH=${KML_UPLOAD_TARGET_PATH}/route.kml
 
   ghost:
     container_name: ghost
+    image: ghost
     volumes:
-      - ${GHOST_SHARED_FOLDER}:/var/lib/ghost:content
+      - ${GHOST_SHARED_FOLDER}:/var/lib/ghost/content
     ports:
       - ${GHOST_PORT}:2368
     environment:
-      - url:${GHOST_URL}
+      - url=${GHOST_URL}
