@@ -93,6 +93,13 @@ export function fill_auto_route_layer(features, auto_route) {
   auto_route.setSource(source)
 }
 
+export function generateKmlFromFeatures(f) {
+  var format = new ol.format.KML({extractStyles:false, writeStyles:true})
+  var features = f.sort(featureSortingFunction)
+  var options = {featureProjection: "EPSG:3857", dataProjection: "EPSG:4326", decimals:2}
+  return format.writeFeatures(features, options)
+}
+
 export function featureSortingFunction(f1, f2) {
   var i1 = f1.get("index") || 0
   var i2 = f2.get("index") || 0
