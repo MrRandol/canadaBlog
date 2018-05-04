@@ -2,6 +2,7 @@ version: '3'
 services:
   reverse_proxy:
     container_name: reverse_proxy
+    user: ${NGINX_UID}
     image: nginx
     volumes:
      - ./reverse_proxy/reverse_proxy.template:/etc/nginx/conf.d/mysite.template
@@ -19,6 +20,7 @@ services:
 
   jenkins:
     container_name: jenkins
+    user: ${JENKINS_UID}
     image: jenkins/jenkins:lts
     volumes:
       - ${JENKINS_SHARED_FOLDER}:/var/jenkins_home
@@ -28,6 +30,7 @@ services:
 
   kml_upload:
     container_name: kml_upload
+    user: ${KML_UPLOAD_UID}
     build: maps/kml_upload
     volumes:
       - ${KML_UPLOAD_SHARED_FOLDER}:${KML_UPLOAD_TARGET_PATH}:rw
@@ -37,6 +40,7 @@ services:
 
   ghost:
     container_name: ghost
+    user: ${GHOST_UID}
     image: ghost
     volumes:
       - ${GHOST_SHARED_FOLDER}:/var/lib/ghost/content
