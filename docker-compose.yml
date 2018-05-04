@@ -29,10 +29,10 @@ services:
     container_name: kml_upload
     build: maps/kml_upload
     volumes:
-      - ${KML_UPLOAD_SHARED_FOLDER}:${KML_UPLOAD_TARGET_PATH}
+      - ${KML_UPLOAD_SHARED_FOLDER}:${KML_UPLOAD_TARGET_PATH}:rw
     environment:
-      PORT=${KML_UPLOAD_PORT}
-      UPLOAD_PATH=${KML_UPLOAD_TARGET_PATH}/route.kml
+     - PORT=${KML_UPLOAD_PORT}
+     - UPLOAD_PATH=${KML_UPLOAD_TARGET_PATH}/route.kml
 
   ghost:
     container_name: ghost

@@ -1,0 +1,286 @@
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: posts ","time":"2018-04-30T13:14:13.088Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: posts ","time":"2018-04-30T13:14:13.089Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: users ","time":"2018-04-30T13:14:13.113Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: users ","time":"2018-04-30T13:14:13.114Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: posts_authors ","time":"2018-04-30T13:14:13.156Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: posts_authors ","time":"2018-04-30T13:14:13.156Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: roles ","time":"2018-04-30T13:14:13.169Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: roles ","time":"2018-04-30T13:14:13.169Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: roles_users ","time":"2018-04-30T13:14:13.196Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: roles_users ","time":"2018-04-30T13:14:13.197Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: permissions ","time":"2018-04-30T13:14:13.210Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: permissions ","time":"2018-04-30T13:14:13.211Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: permissions_users ","time":"2018-04-30T13:14:13.236Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: permissions_users ","time":"2018-04-30T13:14:13.239Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: permissions_roles ","time":"2018-04-30T13:14:13.256Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: permissions_roles ","time":"2018-04-30T13:14:13.256Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: permissions_apps ","time":"2018-04-30T13:14:13.276Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: permissions_apps ","time":"2018-04-30T13:14:13.277Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: settings ","time":"2018-04-30T13:14:13.302Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: settings ","time":"2018-04-30T13:14:13.303Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: tags ","time":"2018-04-30T13:14:13.335Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: tags ","time":"2018-04-30T13:14:13.336Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: posts_tags ","time":"2018-04-30T13:14:13.375Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: posts_tags ","time":"2018-04-30T13:14:13.375Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: apps ","time":"2018-04-30T13:14:13.404Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: apps ","time":"2018-04-30T13:14:13.405Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: app_settings ","time":"2018-04-30T13:14:13.493Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: app_settings ","time":"2018-04-30T13:14:13.493Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: app_fields ","time":"2018-04-30T13:14:13.522Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: app_fields ","time":"2018-04-30T13:14:13.522Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: clients ","time":"2018-04-30T13:14:13.542Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: clients ","time":"2018-04-30T13:14:13.542Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: client_trusted_domains ","time":"2018-04-30T13:14:13.580Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: client_trusted_domains ","time":"2018-04-30T13:14:13.580Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: accesstokens ","time":"2018-04-30T13:14:13.605Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: accesstokens ","time":"2018-04-30T13:14:13.605Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: refreshtokens ","time":"2018-04-30T13:14:13.629Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: refreshtokens ","time":"2018-04-30T13:14:13.629Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: subscribers ","time":"2018-04-30T13:14:13.665Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: subscribers ","time":"2018-04-30T13:14:13.665Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: invites ","time":"2018-04-30T13:14:13.697Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: invites ","time":"2018-04-30T13:14:13.697Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: brute ","time":"2018-04-30T13:14:13.729Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: brute ","time":"2018-04-30T13:14:13.729Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: webhooks ","time":"2018-04-30T13:14:13.745Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Creating table: webhooks ","time":"2018-04-30T13:14:13.745Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: Tag ","time":"2018-04-30T13:14:13.785Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: Tag ","time":"2018-04-30T13:14:13.785Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: Client ","time":"2018-04-30T13:14:13.842Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: Client ","time":"2018-04-30T13:14:13.843Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: Role ","time":"2018-04-30T13:14:13.900Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: Role ","time":"2018-04-30T13:14:13.900Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: Permission ","time":"2018-04-30T13:14:13.974Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: Permission ","time":"2018-04-30T13:14:13.974Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: User ","time":"2018-04-30T13:14:14.463Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: User ","time":"2018-04-30T13:14:14.463Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: Post ","time":"2018-04-30T13:14:14.912Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Model: Post ","time":"2018-04-30T13:14:14.913Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Relation: Role to Permission ","time":"2018-04-30T13:14:15.457Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Relation: Role to Permission ","time":"2018-04-30T13:14:15.457Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Relation: Post to Tag ","time":"2018-04-30T13:14:16.043Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Relation: Post to Tag ","time":"2018-04-30T13:14:16.044Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Relation: User to Role ","time":"2018-04-30T13:14:16.159Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":55,"level":30,"msg":"Relation: User to Role ","time":"2018-04-30T13:14:16.160Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:14:18.937Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:14:18.938Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:14:19.184Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:14:19.184Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:14:19.186Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:14:19.189Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:14:19.186Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:14:19.189Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"msg":"Ghost boot 2.676s ","time":"2018-04-30T13:14:19.194Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"msg":"Ghost boot 2.676s ","time":"2018-04-30T13:14:19.194Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"69863630-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/","method":"GET","originalUrl":"/canada/","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","dnt":"1","upgrade-insecure-requests":"1","cache-control":"max-age=0"},"body":{},"query":{}},"res":{"_headers":{"x-powered-by":"Express","cache-control":"public, max-age=0","content-type":"text/html; charset=utf-8","etag":"W/\"422a-wgdxmcSMwQZsMsIgfAkImzWfzO0\"","vary":"Accept-Encoding","content-encoding":"gzip"},"statusCode":200,"responseTime":"834ms"},"msg":"","time":"2018-04-30T13:14:29.354Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"69863630-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/","method":"GET","originalUrl":"/canada/","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","dnt":"1","upgrade-insecure-requests":"1","cache-control":"max-age=0"},"body":{},"query":{}},"res":{"_headers":{"x-powered-by":"Express","cache-control":"public, max-age=0","content-type":"text/html; charset=utf-8","etag":"W/\"422a-wgdxmcSMwQZsMsIgfAkImzWfzO0\"","vary":"Accept-Encoding","content-encoding":"gzip"},"statusCode":200,"responseTime":"834ms"},"msg":"","time":"2018-04-30T13:14:29.356Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"6a1815f0-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/public/ghost-sdk.min.js?v=5575f81544","method":"GET","originalUrl":"/canada/public/ghost-sdk.min.js?v=5575f81544","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"*/*","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","referer":"http://localhost/canada/","dnt":"1"},"body":{},"query":{"v":"5575f81544"}},"res":{"_headers":{"x-powered-by":"Express","content-type":"application/javascript","content-length":759,"etag":"\"ec1053ea7eb17676fefde1ddc08b099c\"","cache-control":"public, max-age=31536000","vary":"Accept-Encoding"},"statusCode":200,"responseTime":"103ms"},"msg":"","time":"2018-04-30T13:14:29.567Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"6a1815f0-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/public/ghost-sdk.min.js?v=5575f81544","method":"GET","originalUrl":"/canada/public/ghost-sdk.min.js?v=5575f81544","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"*/*","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","referer":"http://localhost/canada/","dnt":"1"},"body":{},"query":{"v":"5575f81544"}},"res":{"_headers":{"x-powered-by":"Express","content-type":"application/javascript","content-length":759,"etag":"\"ec1053ea7eb17676fefde1ddc08b099c\"","cache-control":"public, max-age=31536000","vary":"Accept-Encoding"},"statusCode":200,"responseTime":"103ms"},"msg":"","time":"2018-04-30T13:14:29.569Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"6a17a0c0-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/assets/built/screen.css?v=5575f81544","method":"GET","originalUrl":"/canada/assets/built/screen.css?v=5575f81544","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"text/css,*/*;q=0.1","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","referer":"http://localhost/canada/","dnt":"1"},"body":{},"query":{"v":"5575f81544"}},"res":{"_headers":{"x-powered-by":"Express","accept-ranges":"bytes","cache-control":"public, max-age=31536000","last-modified":"Tue, 24 Apr 2018 08:03:38 GMT","etag":"W/\"8555-162f6adf390\"","content-type":"text/css; charset=UTF-8","vary":"Accept-Encoding","content-encoding":"gzip"},"statusCode":200,"responseTime":"134ms"},"msg":"","time":"2018-04-30T13:14:29.594Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"6a17c7d0-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/assets/js/jquery.fitvids.js?v=5575f81544","method":"GET","originalUrl":"/canada/assets/js/jquery.fitvids.js?v=5575f81544","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"*/*","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","referer":"http://localhost/canada/","dnt":"1"},"body":{},"query":{"v":"5575f81544"}},"res":{"_headers":{"x-powered-by":"Express","accept-ranges":"bytes","cache-control":"public, max-age=31536000","last-modified":"Tue, 24 Apr 2018 08:03:38 GMT","etag":"W/\"d76-162f6adf390\"","content-type":"application/javascript; charset=UTF-8","vary":"Accept-Encoding","content-encoding":"gzip"},"statusCode":200,"responseTime":"198ms"},"msg":"","time":"2018-04-30T13:14:29.654Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"6a17a0c0-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/assets/built/screen.css?v=5575f81544","method":"GET","originalUrl":"/canada/assets/built/screen.css?v=5575f81544","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"text/css,*/*;q=0.1","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","referer":"http://localhost/canada/","dnt":"1"},"body":{},"query":{"v":"5575f81544"}},"res":{"_headers":{"x-powered-by":"Express","accept-ranges":"bytes","cache-control":"public, max-age=31536000","last-modified":"Tue, 24 Apr 2018 08:03:38 GMT","etag":"W/\"8555-162f6adf390\"","content-type":"text/css; charset=UTF-8","vary":"Accept-Encoding","content-encoding":"gzip"},"statusCode":200,"responseTime":"134ms"},"msg":"","time":"2018-04-30T13:14:29.596Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"6a17c7d0-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/assets/js/jquery.fitvids.js?v=5575f81544","method":"GET","originalUrl":"/canada/assets/js/jquery.fitvids.js?v=5575f81544","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"*/*","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","referer":"http://localhost/canada/","dnt":"1"},"body":{},"query":{"v":"5575f81544"}},"res":{"_headers":{"x-powered-by":"Express","accept-ranges":"bytes","cache-control":"public, max-age=31536000","last-modified":"Tue, 24 Apr 2018 08:03:38 GMT","etag":"W/\"d76-162f6adf390\"","content-type":"application/javascript; charset=UTF-8","vary":"Accept-Encoding","content-encoding":"gzip"},"statusCode":200,"responseTime":"198ms"},"msg":"","time":"2018-04-30T13:14:29.661Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"6a186410-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/assets/js/infinitescroll.js?v=5575f81544","method":"GET","originalUrl":"/canada/assets/js/infinitescroll.js?v=5575f81544","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"*/*","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","referer":"http://localhost/canada/","dnt":"1"},"body":{},"query":{"v":"5575f81544"}},"res":{"_headers":{"x-powered-by":"Express","accept-ranges":"bytes","cache-control":"public, max-age=31536000","last-modified":"Tue, 24 Apr 2018 08:03:38 GMT","etag":"W/\"dc6-162f6adf390\"","content-type":"application/javascript; charset=UTF-8","vary":"Accept-Encoding","content-encoding":"gzip"},"statusCode":200,"responseTime":"213ms"},"msg":"","time":"2018-04-30T13:14:29.759Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"6a186410-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/assets/js/infinitescroll.js?v=5575f81544","method":"GET","originalUrl":"/canada/assets/js/infinitescroll.js?v=5575f81544","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"*/*","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","referer":"http://localhost/canada/","dnt":"1"},"body":{},"query":{"v":"5575f81544"}},"res":{"_headers":{"x-powered-by":"Express","accept-ranges":"bytes","cache-control":"public, max-age=31536000","last-modified":"Tue, 24 Apr 2018 08:03:38 GMT","etag":"W/\"dc6-162f6adf390\"","content-type":"application/javascript; charset=UTF-8","vary":"Accept-Encoding","content-encoding":"gzip"},"statusCode":200,"responseTime":"213ms"},"msg":"","time":"2018-04-30T13:14:29.761Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"6aa70f80-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/favicon.ico","method":"GET","originalUrl":"/canada/favicon.ico","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"*/*","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","dnt":"1"},"body":{},"query":{}},"res":{"_headers":{"x-powered-by":"Express","content-type":"image/x-icon","etag":"\"36e47e74810a0d8c32a77f495c49cf8e\"","cache-control":"public, max-age=86400","vary":"Accept-Encoding","content-encoding":"gzip"},"statusCode":200,"responseTime":"14ms"},"msg":"","time":"2018-04-30T13:14:30.422Z","v":0}
+{"name":"Log","hostname":"8f946c611511","pid":1,"level":30,"req":{"meta":{"requestId":"6aa70f80-4c78-11e8-94be-e1e6b003a291","userId":null},"url":"/favicon.ico","method":"GET","originalUrl":"/canada/favicon.ico","params":{},"headers":{"x-forwarded-for":"172.19.0.1","host":"localhost","x-forwarded-proto":"http","connection":"close","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0","accept":"*/*","accept-language":"fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3","accept-encoding":"gzip, deflate","dnt":"1"},"body":{},"query":{}},"res":{"_headers":{"x-powered-by":"Express","content-type":"image/x-icon","etag":"\"36e47e74810a0d8c32a77f495c49cf8e\"","cache-control":"public, max-age=86400","vary":"Accept-Encoding","content-encoding":"gzip"},"statusCode":200,"responseTime":"14ms"},"msg":"","time":"2018-04-30T13:14:30.429Z","v":0}
+{"name":"Log","hostname":"d910b31e2480","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:25:31.218Z","v":0}
+{"name":"Log","hostname":"d910b31e2480","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:25:31.219Z","v":0}
+{"name":"Log","hostname":"d910b31e2480","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:25:31.465Z","v":0}
+{"name":"Log","hostname":"d910b31e2480","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:25:31.465Z","v":0}
+{"name":"Log","hostname":"d910b31e2480","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:25:31.468Z","v":0}
+{"name":"Log","hostname":"d910b31e2480","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:25:31.473Z","v":0}
+{"name":"Log","hostname":"d910b31e2480","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:25:31.468Z","v":0}
+{"name":"Log","hostname":"d910b31e2480","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:25:31.473Z","v":0}
+{"name":"Log","hostname":"d910b31e2480","pid":1,"level":30,"msg":"Ghost boot 2.984s ","time":"2018-04-30T13:25:31.480Z","v":0}
+{"name":"Log","hostname":"d910b31e2480","pid":1,"level":30,"msg":"Ghost boot 2.984s ","time":"2018-04-30T13:25:31.480Z","v":0}
+{"name":"Log","hostname":"4f8b974fc11e","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:27:30.694Z","v":0}
+{"name":"Log","hostname":"4f8b974fc11e","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:27:30.695Z","v":0}
+{"name":"Log","hostname":"4f8b974fc11e","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:27:30.999Z","v":0}
+{"name":"Log","hostname":"4f8b974fc11e","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:27:31.000Z","v":0}
+{"name":"Log","hostname":"4f8b974fc11e","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:27:31.006Z","v":0}
+{"name":"Log","hostname":"4f8b974fc11e","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:27:31.012Z","v":0}
+{"name":"Log","hostname":"4f8b974fc11e","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:27:31.007Z","v":0}
+{"name":"Log","hostname":"4f8b974fc11e","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:27:31.012Z","v":0}
+{"name":"Log","hostname":"4f8b974fc11e","pid":1,"level":30,"msg":"Ghost boot 2.713s ","time":"2018-04-30T13:27:31.016Z","v":0}
+{"name":"Log","hostname":"4f8b974fc11e","pid":1,"level":30,"msg":"Ghost boot 2.713s ","time":"2018-04-30T13:27:31.017Z","v":0}
+{"name":"Log","hostname":"c116961036b1","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:31:18.548Z","v":0}
+{"name":"Log","hostname":"c116961036b1","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:31:18.551Z","v":0}
+{"name":"Log","hostname":"c116961036b1","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:31:18.957Z","v":0}
+{"name":"Log","hostname":"c116961036b1","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:31:18.958Z","v":0}
+{"name":"Log","hostname":"c116961036b1","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:31:18.960Z","v":0}
+{"name":"Log","hostname":"c116961036b1","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:31:18.962Z","v":0}
+{"name":"Log","hostname":"c116961036b1","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:31:18.960Z","v":0}
+{"name":"Log","hostname":"c116961036b1","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:31:18.962Z","v":0}
+{"name":"Log","hostname":"c116961036b1","pid":1,"level":30,"msg":"Ghost boot 2.538s ","time":"2018-04-30T13:31:18.968Z","v":0}
+{"name":"Log","hostname":"c116961036b1","pid":1,"level":30,"msg":"Ghost boot 2.538s ","time":"2018-04-30T13:31:18.968Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:34:53.181Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:34:53.183Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:34:53.432Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:34:53.432Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:34:53.435Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:34:53.440Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:34:53.435Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:34:53.440Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":30,"msg":"Ghost boot 3.154s ","time":"2018-04-30T13:34:53.445Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":30,"msg":"Ghost boot 3.154s ","time":"2018-04-30T13:34:53.445Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:36:40.826Z","v":0}
+{"name":"Log","hostname":"945b7c8bf52d","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:36:40.828Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:36:56.549Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:36:56.551Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:36:56.831Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:36:56.831Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:36:56.833Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:36:56.835Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:36:56.833Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:36:56.835Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":30,"msg":"Ghost boot 3.38s ","time":"2018-04-30T13:36:56.838Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":30,"msg":"Ghost boot 3.38s ","time":"2018-04-30T13:36:56.838Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:37:08.642Z","v":0}
+{"name":"Log","hostname":"faed759c1578","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:37:08.643Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:37:21.745Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:37:21.749Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:37:22.024Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:37:22.025Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:37:22.028Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:37:22.030Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:37:22.028Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:37:22.030Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":30,"msg":"Ghost boot 3.495s ","time":"2018-04-30T13:37:22.032Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":30,"msg":"Ghost boot 3.495s ","time":"2018-04-30T13:37:22.032Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:39:38.315Z","v":0}
+{"name":"Log","hostname":"7f9294648715","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:39:38.315Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:39:50.909Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:39:50.911Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:39:51.172Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:39:51.172Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:39:51.175Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:39:51.177Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:39:51.175Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:39:51.177Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":30,"msg":"Ghost boot 3.3s ","time":"2018-04-30T13:39:51.180Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":30,"msg":"Ghost boot 3.3s ","time":"2018-04-30T13:39:51.181Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:41:35.847Z","v":0}
+{"name":"Log","hostname":"d01ca9a9c133","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:41:35.847Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:41:47.570Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:41:47.572Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:41:47.914Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:41:47.914Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:41:47.919Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:41:47.922Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:41:47.919Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:41:47.923Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":30,"msg":"Ghost boot 2.606s ","time":"2018-04-30T13:41:47.929Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":30,"msg":"Ghost boot 2.606s ","time":"2018-04-30T13:41:47.929Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:43:01.522Z","v":0}
+{"name":"Log","hostname":"6ffc60e711bb","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:43:01.522Z","v":0}
+{"name":"Log","hostname":"1946b4313b6d","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:47:52.053Z","v":0}
+{"name":"Log","hostname":"1946b4313b6d","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:47:52.055Z","v":0}
+{"name":"Log","hostname":"1946b4313b6d","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:47:52.569Z","v":0}
+{"name":"Log","hostname":"1946b4313b6d","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:47:52.569Z","v":0}
+{"name":"Log","hostname":"1946b4313b6d","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:47:52.573Z","v":0}
+{"name":"Log","hostname":"1946b4313b6d","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:47:52.575Z","v":0}
+{"name":"Log","hostname":"1946b4313b6d","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:47:52.573Z","v":0}
+{"name":"Log","hostname":"1946b4313b6d","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:47:52.575Z","v":0}
+{"name":"Log","hostname":"1946b4313b6d","pid":1,"level":30,"msg":"Ghost boot 3.148s ","time":"2018-04-30T13:47:52.579Z","v":0}
+{"name":"Log","hostname":"1946b4313b6d","pid":1,"level":30,"msg":"Ghost boot 3.148s ","time":"2018-04-30T13:47:52.579Z","v":0}
+{"name":"Log","hostname":"5778ddb7083e","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:49:25.315Z","v":0}
+{"name":"Log","hostname":"5778ddb7083e","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:49:25.319Z","v":0}
+{"name":"Log","hostname":"5778ddb7083e","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:49:25.699Z","v":0}
+{"name":"Log","hostname":"5778ddb7083e","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:49:25.699Z","v":0}
+{"name":"Log","hostname":"5778ddb7083e","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:49:25.702Z","v":0}
+{"name":"Log","hostname":"5778ddb7083e","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:49:25.704Z","v":0}
+{"name":"Log","hostname":"5778ddb7083e","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:49:25.702Z","v":0}
+{"name":"Log","hostname":"5778ddb7083e","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:49:25.704Z","v":0}
+{"name":"Log","hostname":"5778ddb7083e","pid":1,"level":30,"msg":"Ghost boot 2.681s ","time":"2018-04-30T13:49:25.708Z","v":0}
+{"name":"Log","hostname":"5778ddb7083e","pid":1,"level":30,"msg":"Ghost boot 2.681s ","time":"2018-04-30T13:49:25.708Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:56:53.873Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:56:53.875Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:56:54.224Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:56:54.225Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:56:54.227Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:56:54.230Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:56:54.227Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:56:54.230Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":30,"msg":"Ghost boot 3.551s ","time":"2018-04-30T13:56:54.234Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":30,"msg":"Ghost boot 3.551s ","time":"2018-04-30T13:56:54.234Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:58:58.011Z","v":0}
+{"name":"Log","hostname":"4579a0a7244a","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T13:58:58.011Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:59:08.041Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T13:59:08.043Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:59:08.509Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T13:59:08.510Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:59:08.516Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:59:08.522Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T13:59:08.518Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T13:59:08.527Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":30,"msg":"Ghost boot 3.495s ","time":"2018-04-30T13:59:08.543Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":30,"msg":"Ghost boot 3.495s ","time":"2018-04-30T13:59:08.543Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T14:00:54.066Z","v":0}
+{"name":"Log","hostname":"b889ed3cd17c","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T14:00:54.067Z","v":0}
+{"name":"Log","hostname":"7c9b0505c091","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:01:05.916Z","v":0}
+{"name":"Log","hostname":"7c9b0505c091","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:01:05.920Z","v":0}
+{"name":"Log","hostname":"7c9b0505c091","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:01:06.161Z","v":0}
+{"name":"Log","hostname":"7c9b0505c091","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:01:06.162Z","v":0}
+{"name":"Log","hostname":"7c9b0505c091","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:01:06.163Z","v":0}
+{"name":"Log","hostname":"7c9b0505c091","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:01:06.165Z","v":0}
+{"name":"Log","hostname":"7c9b0505c091","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:01:06.163Z","v":0}
+{"name":"Log","hostname":"7c9b0505c091","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:01:06.165Z","v":0}
+{"name":"Log","hostname":"7c9b0505c091","pid":1,"level":30,"msg":"Ghost boot 3.049s ","time":"2018-04-30T14:01:06.170Z","v":0}
+{"name":"Log","hostname":"7c9b0505c091","pid":1,"level":30,"msg":"Ghost boot 3.049s ","time":"2018-04-30T14:01:06.170Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:01:43.700Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:01:43.701Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:01:44.013Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:01:44.013Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:01:44.015Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:01:44.018Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:01:44.015Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:01:44.018Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":30,"msg":"Ghost boot 3.431s ","time":"2018-04-30T14:01:44.021Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":30,"msg":"Ghost boot 3.431s ","time":"2018-04-30T14:01:44.021Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T14:02:24.725Z","v":0}
+{"name":"Log","hostname":"0bd8d09c5e15","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T14:02:24.725Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:03:10.129Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:03:10.131Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:03:10.464Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:03:10.464Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:03:10.473Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:03:10.480Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:03:10.474Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:03:10.480Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":30,"msg":"Ghost boot 2.982s ","time":"2018-04-30T14:03:10.491Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":30,"msg":"Ghost boot 2.982s ","time":"2018-04-30T14:03:10.491Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T14:03:24.697Z","v":0}
+{"name":"Log","hostname":"5d42dd967877","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T14:03:24.698Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:04:11.030Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:04:11.032Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:04:11.493Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:04:11.493Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:04:11.496Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:04:11.503Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:04:11.498Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:04:11.503Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":30,"msg":"Ghost boot 3.285s ","time":"2018-04-30T14:04:11.513Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":30,"msg":"Ghost boot 3.285s ","time":"2018-04-30T14:04:11.513Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T14:05:01.880Z","v":0}
+{"name":"Log","hostname":"d95d0bc5bed8","pid":1,"level":40,"msg":"Ghost has shut down ","time":"2018-04-30T14:05:01.883Z","v":0}
+{"name":"Log","hostname":"06c67aa9713f","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:05:15.660Z","v":0}
+{"name":"Log","hostname":"06c67aa9713f","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:05:15.662Z","v":0}
+{"name":"Log","hostname":"06c67aa9713f","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:05:15.967Z","v":0}
+{"name":"Log","hostname":"06c67aa9713f","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:05:15.968Z","v":0}
+{"name":"Log","hostname":"06c67aa9713f","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:05:15.975Z","v":0}
+{"name":"Log","hostname":"06c67aa9713f","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:05:15.977Z","v":0}
+{"name":"Log","hostname":"06c67aa9713f","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:05:15.975Z","v":0}
+{"name":"Log","hostname":"06c67aa9713f","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:05:15.977Z","v":0}
+{"name":"Log","hostname":"06c67aa9713f","pid":1,"level":30,"msg":"Ghost boot 3.05s ","time":"2018-04-30T14:05:15.982Z","v":0}
+{"name":"Log","hostname":"06c67aa9713f","pid":1,"level":30,"msg":"Ghost boot 3.05s ","time":"2018-04-30T14:05:15.982Z","v":0}
+{"name":"Log","hostname":"58d607e785b6","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:07:53.825Z","v":0}
+{"name":"Log","hostname":"58d607e785b6","pid":1,"level":40,"msg":"Theme's file locales/en.json not found. ","time":"2018-04-30T14:07:53.827Z","v":0}
+{"name":"Log","hostname":"58d607e785b6","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:07:54.363Z","v":0}
+{"name":"Log","hostname":"58d607e785b6","pid":1,"level":30,"msg":"Ghost is running in production... ","time":"2018-04-30T14:07:54.365Z","v":0}
+{"name":"Log","hostname":"58d607e785b6","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:07:54.373Z","v":0}
+{"name":"Log","hostname":"58d607e785b6","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:07:54.383Z","v":0}
+{"name":"Log","hostname":"58d607e785b6","pid":1,"level":30,"msg":"Your blog is now available on http://localhost/canada/ ","time":"2018-04-30T14:07:54.374Z","v":0}
+{"name":"Log","hostname":"58d607e785b6","pid":1,"level":30,"msg":"Ctrl+C to shut down ","time":"2018-04-30T14:07:54.383Z","v":0}
+{"name":"Log","hostname":"58d607e785b6","pid":1,"level":30,"msg":"Ghost boot 4.368s ","time":"2018-04-30T14:07:54.399Z","v":0}
+{"name":"Log","hostname":"58d607e785b6","pid":1,"level":30,"msg":"Ghost boot 4.368s ","time":"2018-04-30T14:07:54.399Z","v":0}
