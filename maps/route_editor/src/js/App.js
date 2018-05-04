@@ -57,7 +57,7 @@ class App extends Component {
       <div>
         <div className="map" id="map"></div>
         <div id="route-list">
-          <Route features={this.state.features} waypointHoverCallback={this.handleToggleFeatureOver.bind(this)}/>
+          <Route layer={this.drawing_route_layer} waypointHoverCallback={this.handleToggleFeatureOver.bind(this)}/>
           <Button id="button-save" onClick={this.doSaveRoute.bind(this)} floating large className='orange accent-4' waves='light' icon='save' />
         </div>
       </div>

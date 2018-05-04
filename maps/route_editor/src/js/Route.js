@@ -12,19 +12,19 @@ class Route extends Component {
     this.handleMouseHover = this.handleMouseHover.bind(this);
   }
 
-
   handleMouseHover(feature, isHovering) {
     this.props.waypointHoverCallback(feature, isHovering)
   }
 
   render() {
-    const listItems = this.props.features.sort(featureSortingFunction).map((feature) =>
+    var features = this.props.layer ? this.props.layer.getSource().getFeatures().sort(featureSortingFunction) : []
+    const listItems = features.map((feature) =>
       <CollapsibleItem 
         onMouseEnter={() => this.handleMouseHover(feature, true)} 
         onMouseLeave={() => this.handleMouseHover(feature, false)} 
         key={"feature_" + feature.get("index")} 
         header={feature.get("index") + "/ " + feature.get("name")}>
-        <Waypoint feature={feature} />
+        <Waypoint layer={this.props.layer} feature={feature} />
       </CollapsibleItem>
     );
 

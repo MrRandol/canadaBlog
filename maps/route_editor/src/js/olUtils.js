@@ -69,7 +69,6 @@ export function createMap() {
     return {map, drawing_route}
 }
 
-
 export function fill_auto_route_layer(features, auto_route) {
 
   if (!features || features.length <= 0) {
@@ -104,4 +103,58 @@ export function featureSortingFunction(f1, f2) {
   var i1 = f1.get("index") || 0
   var i2 = f2.get("index") || 0
   return i1 - i2
+}
+
+/********************************
+
+    Generic feature actions
+
+********************************/  
+
+export function handleFeatureAction(action, feature, opts) {
+  switch(action) {
+    case "DELETE":
+      deleteFeature(opts.layer, feature)
+    break;
+    case "UPDATE_INDEX":
+      changeFeatureIndex(feature, opts.features, opts.new_index)
+    break;
+    default: 
+      console.log("Feature action not existing !")
+  }
+}
+
+function deleteFeature(layer, feature) {
+  var drawing_source = layer.getSource()
+  drawing_source.on('removefeature', (e) => {
+    var features = drawing_source.getFeatures().sort(featureSortingFunction)
+    for (var i=1; i<=features.length; i++) {
+      var f = features[i-1]
+      if (f) {
+        f.set('index', i)
+      }
+    }
+    drawing_source.un("removefeature");
+  })
+
+  drawing_source.removeFeature(feature)
+}
+
+export function changeFeatureIndex(feature, f, _new_index) {
+  console.log("Changing the index of feature %s from %s to %s", feature.get("name"), feature.get("index"), new_index)
+  var features = f.sort(featureSortingFunction)
+
+    var current_index = feature.get("index") - 1
+    var new_index = _new_index - 1
+
+    if (new_index > -1 && new_index < features.length) {
+      var temp_element = features.splice(current_index, 1)[0]
+      features.splice(new_index, 0, temp_element)
+    }
+    for (var i=1; i<=features.length; i++) {
+      var f = features[i-1]
+      if (f) {
+        f.set('index', i)
+      }
+    }
 }
