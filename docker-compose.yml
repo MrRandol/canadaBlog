@@ -5,7 +5,7 @@ services:
     user: ${NGINX_UID}
     image: nginx
     volumes:
-     - ./reverse_proxy/reverse_proxy.template:/etc/nginx/conf.d/mysite.template
+     - ${NGINX_TEMPLATE_PATH}:/etc/nginx/conf.d/mysite.template
      - ${ROUTE_EDITOR_DATA}:${ROUTE_EDITOR_DATA_TARGET}/route_edit:ro
     ports:
      - "80:80"
