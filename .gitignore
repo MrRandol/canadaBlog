@@ -9,6 +9,5 @@
 dev_resources
 
 .DS_Store
-jenkins_home
 
 **/kml_upload/route.kml

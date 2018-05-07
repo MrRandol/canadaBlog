@@ -5,6 +5,7 @@ services:
     image: nginx
     volumes:
      - ${NGINX_TEMPLATE_PATH}:/etc/nginx/conf.d/mysite.template
+     - ${NGINX_PASSWORD_PATH}:/etc/nginx/.htpasswd:ro
      - ${ROUTE_EDITOR_DATA}:${ROUTE_EDITOR_DATA_TARGET}/route_edit:ro
     ports:
      - "80:80"
@@ -16,16 +17,6 @@ services:
      - KML_UPLOAD_PORT=${KML_UPLOAD_PORT}
      - ROUTE_EDITOR_DATA_TARGET=${ROUTE_EDITOR_DATA_TARGET}
     command: sh -c "envsubst \"`env | awk -F = '{printf \" $$%s\", $$1}'`\" < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
-
-  jenkins:
-    container_name: jenkins
-    user: ${JENKINS_UID}
-    image: jenkins/jenkins:lts
-    volumes:
-      - ${JENKINS_SHARED_FOLDER}:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - JENKINS_OPTS="--prefix=/jenkins"
 
   kml_upload:
     container_name: kml_upload
