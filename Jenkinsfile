@@ -19,19 +19,19 @@ pipeline {
       parallel {
         stage('copy compose to data folder') {
           steps {
-            sh 'cp docker-compose.yml ${DOCKER_COMPOSE_SHARED_FOLDER_CONTAINER}/docker-compose.yml'
+            sh 'cp docker-compose.yml ${COMPOSE_FILE}'
           }
         }
         stage('copy kml_upload image definition') {
           steps {
-            sh 'rm -rf ${DOCKER_COMPOSE_SHARED_FOLDER_CONTAINER}/maps/kml_upload'
-            sh 'cp -R maps/kml_upload ${DOCKER_COMPOSE_SHARED_FOLDER_CONTAINER}/maps/kml_upload'
+            sh 'rm -rf ${DOCKER_DATA_CONTAINER}/maps/kml_upload'
+            sh 'cp -R maps/kml_upload ${DOCKER_DATA_CONTAINER}/maps/kml_upload'
           }
         }
         stage('copy reverse_proxy data') {
           steps {
-            sh 'rm -rf ${NGINX_DATA_PATH}'
-            sh 'cp -R ./reverse_proxy ${NGINX_DATA_PATH}'
+            sh 'rm -rf ${NGINX_DATA_CONTAINER}'
+            sh 'cp -R ./reverse_proxy ${NGINX_DATA_CONTAINER}'
           }
         }
       }
@@ -53,7 +53,8 @@ pipeline {
     }
   }
   environment {
-    COMPOSE_FILE = "${DOCKER_COMPOSE_SHARED_FOLDER_CONTAINER}/docker-compose.yml"
+    COMPOSE_FILE = "${DOCKER_DATA_CONTAINER}/docker-compose.yml"
+    NGINX_DATA_CONTAINER = "${DATA_FOLDER_CONTAINER}/reverse_proxy"
   }
   triggers {
     githubPush()

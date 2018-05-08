@@ -6,16 +6,15 @@ services:
     volumes:
      - ${NGINX_TEMPLATE_PATH}:/etc/nginx/conf.d/mysite.template
      - ${NGINX_PASSWORD_PATH}:/etc/nginx/.htpasswd:ro
-     - ${ROUTE_EDITOR_DATA}:${ROUTE_EDITOR_DATA_TARGET}/route_edit:ro
+     - ${ROUTE_EDITOR_DATA_HOST}:${ROUTE_EDITOR_DATA_CONTAINER}/route_edit:ro
     ports:
      - "80:80"
     environment:
      - NGINX_HOST=${NGINX_HOST}
      - NGINX_PORT=80
-     - JENKINS_PORT=${JENKINS_PORT}
      - GHOST_PORT=${GHOST_PORT}
      - KML_UPLOAD_PORT=${KML_UPLOAD_PORT}
-     - ROUTE_EDITOR_DATA_TARGET=${ROUTE_EDITOR_DATA_TARGET}
+     - ROUTE_EDITOR_DATA_CONTAINER=${ROUTE_EDITOR_DATA_CONTAINER}
     command: sh -c "envsubst \"`env | awk -F = '{printf \" $$%s\", $$1}'`\" < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
 
   kml_upload:
@@ -23,16 +22,16 @@ services:
     user: ${KML_UPLOAD_UID}
     build: maps/kml_upload
     volumes:
-      - ${KML_UPLOAD_SHARED_FOLDER}:${KML_UPLOAD_TARGET_PATH}:rw
+      - ${KML_UPLOAD_DATA_HOST}:${KML_UPLOAD_DATA_CONTAINER}:rw
     environment:
      - PORT=${KML_UPLOAD_PORT}
-     - UPLOAD_PATH=${KML_UPLOAD_TARGET_PATH}/route.kml
+     - UPLOAD_PATH=${KML_UPLOAD_DATA_CONTAINER}/route.kml
 
   ghost:
     container_name: ghost
     user: ${GHOST_UID}
     image: ghost
     volumes:
-      - ${GHOST_SHARED_FOLDER}:/var/lib/ghost/content
+      - ${GHOST_DATA_HOST}:/var/lib/ghost/content
     environment:
       - url=${GHOST_URL}
