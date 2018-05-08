@@ -25,7 +25,7 @@ server {
 
   location /route_edit {
     # TODO : handle access restriction
-    root ${ROUTE_EDITOR_DATA_TARGET};
+    root ${ROUTE_EDITOR_DATA_CONTAINER};
     index index.html;
     try_files $uri $uri/ /route_edit/index.html;
   }
