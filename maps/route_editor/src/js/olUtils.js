@@ -46,7 +46,7 @@ export function createMap() {
 
     // Drawing controls
     var modify = new ol.interaction.Modify({source: drawing_source});
-    var draw = new ol.interaction.Draw({ source: drawing_source, type: 'Point' });
+    var draw = new ol.interaction.Draw({ source: drawing_source, type: 'Point', style: Style.drawingPointerStyleFunction });
     var snap = new ol.interaction.Snap({source: drawing_source});
     map.addInteraction(modify);
     map.addInteraction(draw);
