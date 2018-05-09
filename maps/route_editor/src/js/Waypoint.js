@@ -34,6 +34,7 @@ class Waypoint extends Component {
 
     var features_length = this.props.layer.getSource().getFeatures().length
     var feature_name = this.props.feature.get("name")
+    var feature_description = this.props.feature.get("description")
 
     return (
       <Row>
@@ -50,6 +51,14 @@ class Waypoint extends Component {
           max={features_length} 
           defaultValue={this.props.feature.get("index")}
           onChange={(e, value) => {this.changeIndex(value)}}
+        />
+
+        <Input 
+          s={12} 
+          label="Waypoint description"
+          type='textarea'
+          defaultValue={feature_description} 
+          onChange={(e, value) => {this.props.feature.set("description", value)}}
         />
 
         {this.state.isDeleting ? (
