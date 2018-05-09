@@ -140,11 +140,11 @@ function deleteFeature(layer, feature) {
   drawing_source.removeFeature(feature)
 }
 
-export function changeFeatureIndex(feature, f, _new_index) {
-  console.log("Changing the index of feature %s from %s to %s", feature.get("name"), feature.get("index"), new_index)
-  var features = f.sort(featureSortingFunction)
+export function changeFeatureIndex(feature, unsorted_features, _new_index) {
+  var features = unsorted_features.sort(featureSortingFunction)
 
     var current_index = feature.get("index") - 1
+    // This is done because we use "display" index (starts at 1 not 0)
     var new_index = _new_index - 1
 
     if (new_index > -1 && new_index < features.length) {
