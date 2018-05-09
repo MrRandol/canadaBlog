@@ -1,21 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('Build route_edit') {
-      parallel {
-        stage('npm install & build ') {
-          steps {
-            sh 'echo "TODO BUILD ROUTE_EDIT"'
-          }
-        }
-        stage('Copy Route_edit') {
-          steps {
-            sh 'echo "TODO : Copy route edit to destination folder"'
-          }
-        }
+    stage('build route_edit') {
+      steps {
+        sh 'cp ${DATA_FOLDER_CONTAINER}/docker/.env.route_editor maps/route_editor/.env'
+        sh 'npm install --prefix=maps/route_editor'
+        sh 'npm run build --prefix=maps/route_editor'
       }
     }
-    stage('Copy docker data') {
+    stage('Copy services data') {
       parallel {
         stage('copy compose to data folder') {
           steps {
@@ -32,6 +25,12 @@ pipeline {
           steps {
             sh 'rm -rf ${NGINX_DATA_CONTAINER}'
             sh 'cp -R ./reverse_proxy ${NGINX_DATA_CONTAINER}'
+          }
+        }
+        stage('copy route_edit data') {
+          steps {
+            sh 'rm -rf ${DATA_FOLDER_CONTAINER}/route_editor/*'
+            sh 'cp -R maps/route_editor/build/* ${DATA_FOLDER_CONTAINER}/route_editor/'
           }
         }
       }
