@@ -59,6 +59,10 @@ export function createMap() {
       }
     })
 
+    var hoverInteraction = new ol.interaction.Select({
+        condition: ol.events.condition.pointerMove,
+        layers:[drawing_route]
+    });
 
     // Listeners
     drawing_source.on('change', () => {

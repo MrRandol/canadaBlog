@@ -45,26 +45,199 @@
     content: "✖";
   }
   .map {
-    min-height: 500px; 
-    width: 100vw;
+    height: 100%; 
   }
+   .fullscreen {
+        width: 100vw;
+        height: 600px;
+      }
+          .fullscreen:-moz-full-screen {
+        height: 100vh;
+      }
+      .fullscreen:-webkit-full-screen {
+        height: 100vh;
+      }
+      .fullscreen:-ms-fullscreen {
+        height: 100vh;
+      }
+
+      .fullscreen:fullscreen {
+        height: 100vh;
+      }
 </style>
-<div id="map" class="map"></div>
+<div id="fullscreen" class="fullscreen">
+    <div id="map" class="map"></div>
+</div>
 <div id="popup" class="ol-popup">
   <a href="#" id="popup-closer" class="ol-popup-closer"></a>
   <div id="popup-content"></div>
 </div>
 
 <script type="text/javascript">
+/********************************
 
+        Openlayers Styles
+
+********************************/
+
+const main_color = '#7d0808'
+const hover_color = '#7d0808'
+
+// Fills
+const white_fill = new ol.style.Fill({
+ color: 'rgba(255,255,255,0.7)'
+})
+const text_fill = new ol.style.Fill({ color: main_color })
+const text_hover_fill = new ol.style.Fill({ color: hover_color })
+
+// Strokes
+const classic_stroke = new ol.style.Stroke({
+  color: main_color,
+  width: 1.5
+})
+const hover_stroke = new ol.style.Stroke({
+  color: hover_color,
+  width: 5
+})
+
+const text_stroke = new ol.style.Stroke({
+  color: '#ffffff', 
+  width: 2
+})
+
+// Markers
+const classic_marker = new ol.style.Circle({
+  fill: white_fill,
+  stroke: classic_stroke,
+  radius: 13
+})
+
+const hover_marker = new ol.style.Circle({
+  fill: new ol.style.Fill({color: '#ffdddd'}),
+  stroke: hover_stroke,
+  radius: 16
+})
+
+const drawing_marker = new ol.style.Circle({
+  fill: new ol.style.Fill({ color: main_color }),
+  stroke: new ol.style.Stroke({
+    color: '#ffffff', 
+    width: 2
+  }),
+  radius: 6
+})
+// Marker Text
+
+function textFromFeature(feature, hover = false) {
+  var fill = hover ? text_hover_fill : text_fill
+  var font_size = hover ? "23px" : "17px"
+  return new ol.style.Text({
+    font: font_size + ' Open Sans,Calibri,sans-serif',
+    textAlign: 'center',
+    fill: fill,
+    stroke: text_stroke,
+    text: "" + feature.get("index")
+  })
+}
+
+function drawingPointerStyleFunction(feature) {
+  return [
+   new ol.style.Style({
+     image: drawing_marker,
+     fill: white_fill,
+     stroke: classic_stroke,
+     zIndex: 200,
+     text: ol.style.Text({text: ""})
+   })
+  ]
+}
+
+function routePlacemarkStyleFunction(feature) {
+  return [
+   new ol.style.Style({
+     image: classic_marker,
+     fill: white_fill,
+     stroke: classic_stroke,
+     zIndex: 1,
+     text: textFromFeature(feature)
+   })
+  ]
+}
+
+function routePlacemarkHoverStyleFunction(feature) {
+  return [
+   new ol.style.Style({
+     image: hover_marker,
+     fill: white_fill,
+     stroke: hover_stroke,
+     zIndex: 100,
+     text: textFromFeature(feature, true)
+   })
+  ]
+}
+
+function routeLineStyleFunction(feature) {
+  var fill = new ol.style.Fill({
+   color: 'rgba(255,255,255,0.8)'
+  })
+  var stroke = new ol.style.Stroke({
+   color: main_color,
+   width: 1
+  })
+
+  return [
+   new ol.style.Style({
+     fill: fill,
+     stroke: stroke
+   })
+  ]
+}
+
+    var auto_route = new ol.layer.Vector({ 
+      source: new ol.source.Vector(),
+      style: routeLineStyleFunction
+    });
+function fill_auto_route_layer(features, auto_route) {
+
+  if (!features || features.length <= 0) {
+    return
+  }
+
+  var coordinates = []
+  var feature
+  for (var index = 0; index < features.length; index++) { 
+    feature = features[index]
+    coordinates.push(feature.getGeometry().getCoordinates())
+  }
+
+  var source = new ol.source.Vector({
+    features: [new ol.Feature({
+      geometry: new ol.geom.LineString(coordinates),
+      name: 'Line'
+    })]
+  })
+
+  auto_route.setSource(source)
+}
+function featureSortingFunction(f1, f2) {
+  var i1 = f1.get("index") || 0
+  var i2 = f2.get("index") || 0
+  return i1 - i2
+}
   var route_source = new ol.source.Vector({
     url: "http://178.32.211.147/route",
-    format: new ol.format.KML({extractStyles:false}),
+    format: new ol.format.KML({extractStyles:false})
   })
   var route = new ol.layer.Vector({ 
-    source: route_source
+    source: route_source,
+    style: routePlacemarkStyleFunction
   });
 
+    route_source.on('change', () => {
+      var features = route_source.getFeatures().sort(featureSortingFunction)
+      fill_auto_route_layer(features, auto_route)
+    })
+    
   var bing = new ol.layer.Tile({
     visible: true,
     preload: Infinity,
@@ -105,14 +278,22 @@
 
   var map = new ol.Map({
     target: 'map',
-    layers: [ bing, route ],
+    layers: [ bing, auto_route, route ],
     overlays: [overlay],
+          controls: ol.control.defaults().extend([
+        new ol.control.FullScreen()
+      ]),
     view: new ol.View({
        center: [-11000000, 7800000],
        zoom: 4
     })
   });
-
+var hoverInteraction = new ol.interaction.Select({
+    condition: ol.events.condition.pointerMove,
+    layers:[route],
+    style: routePlacemarkHoverStyleFunction
+});
+map.addInteraction(hoverInteraction);
   /**
   * Add a click handler to the map to render the popup.
   */
@@ -131,3 +312,21 @@
      }
   });
 </script>
+
+<script type="text/javascript">
+function onHelpClick(e) {
+    if (document.getElementById('help').style.display == 'none') {
+        document.getElementById('help').style.display = ''
+    } else {
+        document.getElementById('help').style.display = 'none'
+    }
+}
+</script>
+
+<hr/>
+<button onclick="onHelpClick()">AIDE</button>
+<br/>
+<i id="help" style="display:none">
+Cliquez sur un point pour plus de détails. <br/>
+Plein écran : cliquez sur le bouton en haut à droite de la carte.
+</i>

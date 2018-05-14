@@ -7,7 +7,8 @@ import * as ol from 'openlayers'
 ********************************/
 
 const main_color = '#7d0808'
-const hover_color = '#cc0000'
+//const hover_color = '#cc0000'
+const hover_color = '#7d0808'
 
 // Fills
 const white_fill = new ol.style.Fill({
@@ -39,7 +40,8 @@ const classic_marker = new ol.style.Circle({
 })
 
 const hover_marker = new ol.style.Circle({
-  fill: white_fill,
+  //fill: white_fill,
+  fill: new ol.style.Fill({color: '#ffdddd'}),
   stroke: hover_stroke,
   radius: 16
 })
@@ -118,4 +120,3 @@ export function routeLineStyleFunction(feature) {
    })
   ]
 }
-
