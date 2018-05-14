@@ -11,8 +11,7 @@
     border: 1px solid #cccccc;
     bottom: 12px;
     left: -50px;
-    min-width: 300px;
-    min-height: 300px;
+    min-width: 400px;
   }
   .ol-popup:after, .ol-popup:before {
     top: 100%;
@@ -44,6 +43,19 @@
   .ol-popup-closer:after {
     content: "✖";
   }
+  .ol-popup #popup-content {
+    overflow-y: auto;
+    min-height: 70px;
+    max-height: 350px;
+  }
+  .ol-popup #popup-content h6 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  .ol-popup #popup-content p {
+    margin: 5px 0 0 0;
+    font-size: 1.7rem;
+  }
   .map {
     height: 100%; 
   }
@@ -69,7 +81,7 @@
     <div id="map" class="map"></div>
 </div>
 <div id="popup" class="ol-popup">
-  <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+  <a href="#" id="popup-closer" class="ol-popup-closer" style="color: #7d0808;box-shadow:none"></a>
   <div id="popup-content"></div>
 </div>
 
