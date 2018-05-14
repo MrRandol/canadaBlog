@@ -7,6 +7,7 @@ services:
      - ${NGINX_TEMPLATE_PATH}:/etc/nginx/conf.d/mysite.template
      - ${NGINX_PASSWORD_PATH}:/etc/nginx/.htpasswd:ro
      - ${ROUTE_EDITOR_DATA_HOST}:${ROUTE_EDITOR_DATA_CONTAINER}/route_edit:ro
+     - ${PHOTO_GALLERIES_DATA_HOST}:${PHOTO_GALLERIES_DATA_CONTAINER}:ro
     ports:
      - "80:80"
     environment:
@@ -15,6 +16,7 @@ services:
      - GHOST_PORT=${GHOST_PORT}
      - KML_UPLOAD_PORT=${KML_UPLOAD_PORT}
      - ROUTE_EDITOR_DATA_CONTAINER=${ROUTE_EDITOR_DATA_CONTAINER}
+     - PHOTO_GALLERIES_DATA_CONTAINER=${PHOTO_GALLERIES_DATA_CONTAINER}
     command: sh -c "envsubst \"`env | awk -F = '{printf \" $$%s\", $$1}'`\" < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
 
   kml_upload:
