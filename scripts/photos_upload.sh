@@ -16,7 +16,7 @@ echo "===> Checking ${PHOTOS_UPLOAD_FOLDER} <==="
 mkdir -p workspace
 cd workspace
 
-for archive in ${PHOTOS_UPLOAD_FOLDER}/*.zip; do
+for archive in $(find ${PHOTOS_UPLOAD_FOLDER}/*.zip 2> /dev/null); do
 
   echo "Processing ${archive} archive.."
 
