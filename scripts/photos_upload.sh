@@ -12,6 +12,8 @@ echo "###############################"
 
 echo "===> Checking ${PHOTOS_UPLOAD_FOLDER} <==="
 
+ls -la ${PHOTOS_UPLOAD_FOLDER}
+
 # Create (if not existing) workspace a go into it
 mkdir -p workspace
 cd workspace
