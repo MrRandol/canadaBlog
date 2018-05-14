@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+set -u
 
 # USE ENV FOR THOSE
 #PHOTOS_UPLOAD_FOLDER=/shared/data/photos_upload # Folder where zip file is uploaded
@@ -14,7 +16,7 @@ echo "===> Checking ${PHOTOS_UPLOAD_FOLDER} <==="
 mkdir -p workspace
 cd workspace
 
-for archive in PHOTOS_UPLOAD_FOLDER/*.zip; do
+for archive in ${PHOTOS_UPLOAD_FOLDER}/*.zip; do
 
   echo "Processing ${archive} archive.."
 
