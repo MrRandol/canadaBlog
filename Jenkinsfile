@@ -58,4 +58,7 @@ pipeline {
   triggers {
     githubPush()
   }
+  options { 
+    buildDiscarder(logRotator(numToKeepStr: '10')) 
+  }
 }
