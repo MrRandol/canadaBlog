@@ -55,9 +55,6 @@ pipeline {
     COMPOSE_FILE = "${DOCKER_DATA_CONTAINER}/docker-compose.yml"
     NGINX_DATA_CONTAINER = "${DATA_FOLDER_CONTAINER}/reverse_proxy"
   }
-  triggers {
-    githubPush()
-  }
   options { 
     buildDiscarder(logRotator(numToKeepStr: '10')) 
   }
