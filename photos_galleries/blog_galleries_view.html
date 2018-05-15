@@ -1,0 +1,12 @@
+<script>
+window.onload = function() {
+  var json = '[{"name":"kittens"},{"name":"g1"},{"name":"g2"}]'
+  initialize_select(JSON.parse(json));
+};
+</script>
+
+<select id="gallery-select" onChange="change_gallery()">
+    <option value="" disabled selected>Choisir une gallerie pour l'afficher</option>
+</select>
+<hr/>
+<div id="juicebox-container"></div>

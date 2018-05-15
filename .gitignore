@@ -9,4 +9,6 @@ dev_resources
 
 .DS_Store
 
-**/kml_upload/route.kml
+
+casper-randol/assets/built
+casper-randol/dist
