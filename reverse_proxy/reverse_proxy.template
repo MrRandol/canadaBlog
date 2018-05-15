@@ -41,6 +41,8 @@ server {
   }
 
   location /photos_galleries {
+    add_header 'Access-Control-Allow-Origin' '*';
+    add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS';
     alias ${PHOTO_GALLERIES_DATA_CONTAINER};
     autoindex on;
     try_files $uri $uri/ =404;
