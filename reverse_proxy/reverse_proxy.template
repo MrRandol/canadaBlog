@@ -40,7 +40,7 @@ server {
     proxy_pass http://kml_upload;
   }
 
-  location /galleries {
+  location /photos_galleries {
     alias ${PHOTO_GALLERIES_DATA_CONTAINER};
     autoindex on;
     try_files $uri/ =404;
