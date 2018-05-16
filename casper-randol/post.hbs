@@ -16,6 +16,40 @@ into the {body} of the default.hbs template --}}
         .jb-caption-title {
             float: left;
         }
+        #isso-thread {
+          border-top : 1px solid grey;
+        }
+
+
+        #isso-thread h4 {
+          font-size: 1em;
+        }
+
+        #isso-thread input[name="website"] { 
+          display:none;
+        }
+
+        #isso-thread .textarea-wrapper {
+          margin-top: 15px;
+        }
+
+        #isso-thread .auth-section {
+          margin-top: 15px;
+        }
+
+        #isso-thread .post-action {
+          margin-top: 15px;
+          float: none;
+        }
+
+        #isso-thread .input-wrapper {
+          display: inline;
+          margin-right: 15px;
+        }
+
+        #isso-thread #isso-root {
+          border-top: 1px dotted grey;
+        }
     </style>
 </header>
 
@@ -79,28 +113,9 @@ into the {body} of the default.hbs template --}}
                 {{/author}}
             </footer>
 
-            {{!--
+            <script data-isso="/isso" data-isso-css="true" data-isso-lang="fr" data-isso-require-email="false" data-isso-avatar="false" data-isso-require-author="true" data-isso-vote="false" src="/isso/js/embed.min.js"></script>
 
-            If you use Disqus comments, just uncomment this block.
-            The only thing you need to change is "test-apkdzgmqhj" - which
-            should be replaced with your own Disqus site-id.
-
-            <section class="post-full-comments">
-                <div id="disqus_thread"></div>
-                <script>
-                    var disqus_config = function () {
-                        this.page.url = '{{url absolute="true"}}';
-                        this.page.identifier = 'ghost-{{comment_id}}';
-                    };
-                    (function() {
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://test-apkdzgmqhj.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                    })();
-                </script>
-            </section>
-            --}}
+            <section id="isso-thread"></section>
 
         </article>
 
