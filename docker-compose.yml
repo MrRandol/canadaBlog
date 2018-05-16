@@ -10,11 +10,16 @@ services:
      - ${PHOTO_GALLERIES_DATA_HOST}:${PHOTO_GALLERIES_DATA_CONTAINER}:ro
     ports:
      - "80:80"
+    depends_on:
+      - "kml_upload"
+      - "ghost"
+      - "isso"
     environment:
      - NGINX_HOST=${NGINX_HOST}
      - NGINX_PORT=80
      - GHOST_PORT=${GHOST_PORT}
      - KML_UPLOAD_PORT=${KML_UPLOAD_PORT}
+     - ISSO_PORT=${ISSO_PORT}
      - ROUTE_EDITOR_DATA_CONTAINER=${ROUTE_EDITOR_DATA_CONTAINER}
      - PHOTO_GALLERIES_DATA_CONTAINER=${PHOTO_GALLERIES_DATA_CONTAINER}
     command: sh -c "envsubst \"`env | awk -F = '{printf \" $$%s\", $$1}'`\" < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
@@ -37,3 +42,13 @@ services:
       - ${GHOST_DATA_HOST}:/var/lib/ghost/content
     environment:
       - url=${GHOST_URL}
+
+  isso:
+    container_name: isso
+    image: wonderfall/isso
+    volumes:
+      - ${ISSO_CONFIG_FOLDER_HOST}:${ISSO_CONFIG_FOLDER_CONTAINER}
+      - ${ISSO_DB_FOLDER_HOST}:${ISSO_DB_FOLDER_CONTAINER}
+    environment:
+      - UID=${ISSO_UID}
+      - GID=${ISSO_GID}
