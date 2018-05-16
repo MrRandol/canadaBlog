@@ -1,7 +1,13 @@
 <script>
 window.onload = function() {
-  var json = '[{"name":"kittens"},{"name":"g1"},{"name":"g2"}]'
-  initialize_select(JSON.parse(json));
+     jQuery.support.cors = true;
+    $.ajax ({
+        url: '/photos_galleries/common/galleries.json',
+        datatype: "json",
+        success: function (e) {
+            var array = e.sort(function(a,b) {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);} );
+            initialize_select(array)
+        }})
 };
 </script>
 
