@@ -58,8 +58,9 @@ then
    exit 0
 fi
 
-# Loop though all data in PHOTO_GALLERIES_FOLDER
 
+echo "[" > ${PHOTOS_GALLERIES_FOLDER}/common/galleries.json
+# Loop though all data in PHOTO_GALLERIES_FOLDER
 for GALLERY in $(find ${PHOTOS_GALLERIES_FOLDER} -type d 2> /dev/null); do
   echo ">>> Processing gallery ${GALLERY}"
 
@@ -82,12 +83,14 @@ for GALLERY in $(find ${PHOTOS_GALLERIES_FOLDER} -type d 2> /dev/null); do
        echo "<title><![CDATA[$(basename ${photo_path})]]></title>" >> ${GALLERY}/config.xml
        echo "</image>" >> ${GALLERY}/config.xml
    done
-   
    echo '</juiceboxgallery>' >> ${GALLERY}/config.xml
-  fi
- 
 
+   echo "{ \"name\": \"$(basename ${GALLERY})\"}," >> ${PHOTOS_GALLERIES_FOLDER}/common/galleries.json
+  fi
 done
+# remove tailing comma
+sed -i '$ s/.$//'  ${PHOTOS_GALLERIES_FOLDER}/common/galleries.json
+echo "]" >> ${PHOTOS_GALLERIES_FOLDER}/common/galleries.json
 
 
 echo "===> END OF PROCESS. ALL DONE ! <==="
