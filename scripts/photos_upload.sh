@@ -80,7 +80,7 @@ for GALLERY in $(find ${PHOTOS_GALLERIES_FOLDER} -type d 2> /dev/null); do
        echo ${photo_path}
        
        echo "<image imageURL=\"${photo_path}\" thumbURL=\"${photo_path}\" linkURL=\"${photo_path}\" linkTarget=\"_blank\">" >> ${GALLERY}/config.xml
-       echo "<title><![CDATA[$(basename ${photo_path})]]></title>" >> ${GALLERY}/config.xml
+       #echo "<title><![CDATA[$(basename ${photo_path})]]></title>" >> ${GALLERY}/config.xml
        echo "</image>" >> ${GALLERY}/config.xml
    done
    echo '</juiceboxgallery>' >> ${GALLERY}/config.xml
