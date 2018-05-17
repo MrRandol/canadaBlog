@@ -50,12 +50,17 @@ pipeline {
         sh 'docker-compose -f ${COMPOSE_FILE} up -d'
       }
     }
+    stage('Clean WS') {
+      steps {
+        cleanWs()
+      }
+    }
   }
   environment {
     COMPOSE_FILE = "${DOCKER_DATA_CONTAINER}/docker-compose.yml"
     NGINX_DATA_CONTAINER = "${DATA_FOLDER_CONTAINER}/reverse_proxy"
   }
-  options { 
-    buildDiscarder(logRotator(numToKeepStr: '10')) 
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '10'))
   }
 }
