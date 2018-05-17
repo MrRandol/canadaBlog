@@ -5,7 +5,7 @@ services:
     image: nginx
     volumes:
      - ${NGINX_TEMPLATE_PATH}:/etc/nginx/conf.d/mysite.template
-     - ${NGINX_PASSWORD_PATH}:/etc/nginx/:ro
+     - ${NGINX_PASSWORD_PATH}:/etc/nginx/htpasswd:ro
      - ${ROUTE_EDITOR_DATA_HOST}:${ROUTE_EDITOR_DATA_CONTAINER}/route_edit:ro
      - ${PHOTO_GALLERIES_DATA_HOST}:${PHOTO_GALLERIES_DATA_CONTAINER}:ro
     ports:
