@@ -44,10 +44,10 @@ a {
 }
 
 .site-nav {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(100, 100, 100, 0.6);
 }
 
-.site-nav .site-nav-left ul.nav {
+.site-nav .site-nav-left {
     margin: auto;
 }
 
