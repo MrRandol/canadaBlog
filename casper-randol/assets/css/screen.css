@@ -43,6 +43,20 @@ a {
     color: var(--link-color);
 }
 
+.site-nav {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.site-nav .site-nav-left ul.nav {
+    margin: auto;
+}
+
+.site-nav .site-nav-left ul.nav li a{
+    opacity: 1;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
 /* 1. Global - Set up the things
 /* ---------------------------------------------------------- */
 
