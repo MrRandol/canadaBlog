@@ -8,8 +8,12 @@ services:
      - ${NGINX_PASSWORD_PATH}:/etc/nginx/htpasswd:ro
      - ${ROUTE_EDITOR_DATA_HOST}:${ROUTE_EDITOR_DATA_CONTAINER}/route_edit:ro
      - ${PHOTO_GALLERIES_DATA_HOST}:${PHOTO_GALLERIES_DATA_CONTAINER}:ro
+     - ${DH_PARAM_DATA_HOST}/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
+     - ${LETS_ENCRYPT_DATA_HOST}/live/${BLOG_HOST}/fullchain.pem:/etc/letsencrypt/live/${BLOG_HOST}/fullchain.pem
+     - ${LETS_ENCRYPT_DATA_HOST}/live/${BLOG_HOST}/privkey.pem:/etc/letsencrypt/live/${BLOG_HOST}/privkey.pem
     ports:
      - "80:80"
+     - "443:443"
     depends_on:
       - "kml_upload"
       - "ghost"
