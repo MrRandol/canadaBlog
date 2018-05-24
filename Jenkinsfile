@@ -35,8 +35,8 @@ pipeline {
         }
         stage('copy static data') {
           steps {
-            sh 'rm -rf ${STATIC_COMMON_DATA_CONTAINER}'
-            sh 'cp -R ./static_common ${STATIC_COMMON_DATA_CONTAINER}'
+            sh 'rm -rf ${DATA_FOLDER_CONTAINER}/static'
+            sh 'cp -R ./static_common ${DATA_FOLDER_CONTAINER}/static'
           }
         }
       }
