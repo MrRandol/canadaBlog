@@ -2,7 +2,7 @@
 proxy_set_header Proxy "";
 
 upstream ghost {
-  server ghost:${GHOST_PORT};
+  server ghost:2368;
 }
 
 upstream kml_upload {
@@ -10,7 +10,7 @@ upstream kml_upload {
 }
 
 upstream isso {
-  server isso:${ISSO_PORT};
+  server isso:8080;
 }
 
 server {
@@ -85,7 +85,7 @@ server {
   location /route_edit {
     auth_basic "Restricted area";
     auth_basic_user_file /etc/nginx/htpasswd/.htpasswd; 
-    root ${ROUTE_EDITOR_DATA_CONTAINER};
+    root /home/share/route_edit;
     index index.html;
     try_files $uri $uri/ /route_edit/index.html;
   }
@@ -106,7 +106,7 @@ server {
   location /static {
     add_header 'Access-Control-Allow-Origin' '*';
     add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS';
-    alias ${STATIC_COMMON_DATA_CONTAINER};
+    alias /home/share/static;
     autoindex on;
     try_files $uri $uri/ =404;
   }
@@ -114,7 +114,7 @@ server {
   location /photos_galleries {
     add_header 'Access-Control-Allow-Origin' '*';
     add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS';
-    alias ${PHOTO_GALLERIES_DATA_CONTAINER};
+    alias /home/share/photos_galleries;
     autoindex on;
     try_files $uri $uri/ =404;
   }

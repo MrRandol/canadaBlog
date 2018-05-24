@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build route_edit') {
       steps {
-        sh 'cp ${DATA_FOLDER_CONTAINER}/docker/.env.route_editor maps/route_editor/.env'
+        sh 'cp ${DOCKER_DATA_CONTAINER}/.env.route_editor maps/route_editor/.env'
         sh 'npm install --prefix=maps/route_editor'
         sh 'npm run build --prefix=maps/route_editor'
       }
@@ -23,8 +23,8 @@ pipeline {
         }
         stage('copy reverse_proxy data') {
           steps {
-            sh 'rm -rf ${NGINX_DATA_CONTAINER}'
-            sh 'cp -R ./reverse_proxy ${NGINX_DATA_CONTAINER}'
+            sh 'rm -rf ${DATA_FOLDER_CONTAINER}/reverse_proxy/'
+            sh 'cp -R ./reverse_proxy ${DATA_FOLDER_CONTAINER}/reverse_proxy/'
           }
         }
         stage('copy route_edit data') {
@@ -64,7 +64,6 @@ pipeline {
   }
   environment {
     COMPOSE_FILE = "${DOCKER_DATA_CONTAINER}/docker-compose.yml"
-    NGINX_DATA_CONTAINER = "${DATA_FOLDER_CONTAINER}/reverse_proxy"
   }
   options {
     buildDiscarder(logRotator(numToKeepStr: '10'))
