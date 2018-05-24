@@ -146,42 +146,6 @@ var bing = new ol.layer.Tile({
   })
 })
 
-/********************************
-      Popup Configuration
-********************************/
-var container = document.getElementById('popup');
-var content = document.getElementById('popup-content');
-var closer = document.getElementById('popup-closer');
-
-var overlay = new ol.Overlay({
-  element: container,
-  autoPan: true,
-  autoPanAnimation: {
-    duration: 250
-  }
-});
-
-closer.onclick = function() {
-  overlay.setPosition(undefined);
-  closer.blur();
-  return false;
-};
-
-/********************************
-          Map Creation
-********************************/
-var map = new ol.Map({
-  target: 'map',
-  layers: [ bing, waypoints_links_layer, route ],
-  overlays: [overlay],
-  controls: ol.control.defaults().extend([
-    new ol.control.FullScreen()
-  ]),
-  view: new ol.View({
-    center: [-11000000, 7800000],
-    zoom: 4
- })
-});
 
 /********************************
         Map Interactions
@@ -191,21 +155,58 @@ var hoverInteraction = new ol.interaction.Select({
   layers:[route],
   style: waypointHoverStyleFunction
 });
-map.addInteraction(hoverInteraction);
 
 
-map.on('singleclick', function(e) {
-  var features = map.getFeaturesAtPixel(e.pixel)
-  if (features && features.length >= 1) {
-    var feature = features[0]
-    var coords = feature.getGeometry().getCoordinates();
-    content.innerHTML = 
-    '<h6>Etape #' + feature.get("index").trim() + ' : ' + feature.get("name") + '</h6>' + 
-    '<p>' + feature.get("description") + '</p>'
-    overlay.setPosition(coords);
-  }
-  else {
-    console.log("clicked blank")
-  }
+$(document).ready(function (){
+  /****************************************
+    Popup Configuration (need DOM Loaded)
+  ****************************************/
+  var container = document.getElementById('popup');
+  var content = document.getElementById('popup-content');
+  var closer = document.getElementById('popup-closer');
+
+  var overlay = new ol.Overlay({
+    element: container,
+    autoPan: true,
+    autoPanAnimation: {
+      duration: 250
+    }
+  });
+
+  closer.onclick = function() {
+    overlay.setPosition(undefined);
+    closer.blur();
+    return false;
+  };
+
+  /********************************
+            Map Creation
+  ********************************/
+  var map = new ol.Map({
+    target: 'map',
+    layers: [ bing, waypoints_links_layer, route ],
+    overlays: [overlay],
+    controls: ol.control.defaults().extend([
+      new ol.control.FullScreen()
+    ]),
+    view: new ol.View({
+      center: [-11000000, 7800000],
+      zoom: 4
+   })
+  });
+
+  map.addInteraction(hoverInteraction);
+
+  map.on('singleclick', function(e) {
+    var features = map.getFeaturesAtPixel(e.pixel)
+    if (features && features.length >= 1) {
+      var feature = features[0]
+      var coords = feature.getGeometry().getCoordinates();
+      content.innerHTML = 
+      '<h6>Etape #' + feature.get("index").trim() + ' : ' + feature.get("name") + '</h6>' + 
+      '<p>' + feature.get("description") + '</p>'
+      overlay.setPosition(coords);
+    }
+  });
+
 });
-
