@@ -15,8 +15,8 @@ services:
      - ${NGINX_TEMPLATE_PATH}:/etc/nginx/conf.d/mysite.template
      - ${NGINX_HTPASSWD_PATH}:/etc/nginx/htpasswd/.htpasswd:ro
      - ${NGINX_DH_PARAM_PATH}/:/etc/nginx/dhparam/dhparam-2048.pem:ro
-     - ${LETS_ENCRYPT_FULLCHAIN_PATH}/live/${BLOG_HOST}/fullchain.pem:/etc/letsencrypt/live/${BLOG_HOST}/:ro
-     - ${LETS_ENCRYPT_PRIVKEY_PATH}/live/${BLOG_HOST}/privkey.pem:/etc/letsencrypt/live/${BLOG_HOST}/:ro
+     - ${LETS_ENCRYPT_FULLCHAIN_PATH}:/etc/letsencrypt/live/${BLOG_HOST}/fullchain.pem:ro
+     - ${LETS_ENCRYPT_PRIVKEY_PATH}:/etc/letsencrypt/live/${BLOG_HOST}/privkey.pem:ro
      - ${ROUTE_EDIT_DATA}:/home/share/route_edit:ro
      - ${STATIC_DATA_PATH}:/home/share/static:ro
      - ${PHOTO_GALLERIES_PATH}:/home/share/photos_galleries:ro
