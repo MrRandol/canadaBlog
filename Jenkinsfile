@@ -33,6 +33,12 @@ pipeline {
             sh 'cp -R maps/route_editor/build/* ${DATA_FOLDER_CONTAINER}/route_editor/'
           }
         }
+        stage('copy static data') {
+          steps {
+            sh 'rm -rf ${STATIC_COMMON_DATA_CONTAINER}'
+            sh 'cp -R ./static_common ${STATIC_COMMON_DATA_CONTAINER}'
+          }
+        }
       }
     }
     stage('Build docker images') {
