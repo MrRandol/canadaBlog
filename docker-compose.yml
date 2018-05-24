@@ -3,7 +3,6 @@ services:
   reverse_proxy:
     container_name: reverse_proxy
     image: nginx
-    user: ${NGINX_UID}
     ports:
      - "80:80"
      - "443:443"
