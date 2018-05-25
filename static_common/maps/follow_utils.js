@@ -8,13 +8,8 @@ const hover_color = '#7d0808'
 const white_fill = new ol.style.Fill({
  color: 'rgba(255,255,255,0.7)'
 })
-const text_stroke = new ol.style.Stroke({
-  color: '#ffffff', 
-  width: 2
-})
 
 // Normal Waypoint
-const text_fill = new ol.style.Fill({ color: main_color })
 const waypoint_stroke = new ol.style.Stroke({
   color: main_color,
   width: 1.5
@@ -26,7 +21,6 @@ const waypoint_marker = new ol.style.Circle({
 })
 
 // Hover Waypoint
-const text_hover_fill = new ol.style.Fill({ color: main_color })
 const hover_stroke = new ol.style.Stroke({
   color: main_color,
   width: 5
@@ -37,17 +31,6 @@ const hover_marker = new ol.style.Circle({
   radius: 10
 })
 
-
-function textFromFeature(feature, hover = false) {
-  var font_size = hover ? "23px" : "17px"
-  return new ol.style.Text({
-    font: font_size + ' Open Sans,Calibri,sans-serif',
-    textAlign: 'center',
-    fill: text_fill,
-    stroke: text_stroke,
-    text: "" + feature.get("index")
-  })
-}
 
 function waypointStyleFunction(feature) {
   return [
@@ -81,48 +64,57 @@ function routeLineStyleFunction(feature) {
 }
 
 /********************************
-    Automatic waypoints link
+    Automatic waypoints Layer
 ********************************/
-var waypoints_links_layer = new ol.layer.Vector({ 
+var waypoints_auto_layer = new ol.layer.Vector({ 
   source: new ol.source.Vector(),
-  style: routeLineStyleFunction
+  style: waypointStyleFunction
 })
 
-function autoLinkWaypoints(features, waypoints_links_layer) {
-  if (!features || features.length <= 0) {
+function autoLinkWaypoints(features, waypoints_auto_layer) {
+  if (!features || features.length != 1) {
     return
   }
-  var coordinates = []
-  var feature
-  for (var index = 0; index < features.length; index++) { 
-    feature = features[index]
-    coordinates.push(feature.getGeometry().getCoordinates())
+  var coordinates = features[0].getGeometry().getCoordinates()
+  var coord
+  var waypoints_features = []
+  var name
+  var source = new ol.source.Vector()
+
+  for (var index = 0; index < coordinates.length; index++) { 
+    coord = coordinates[index]
+    name = "waypoint_"
+    name = name.concat(index+1)
+    source.addFeature(new ol.Feature({
+      geometry: new ol.geom.Point([coord[0], coord[1], coord[2]]),
+      name: name,
+      date: new Date(coord[3])
+    }))
   }
-  var source = new ol.source.Vector({
-    features: [new ol.Feature({
-      geometry: new ol.geom.LineString(coordinates),
-      name: 'Line'
-    })]
-  })
-  waypoints_links_layer.setSource(source)
+
+  var clusterSource = new ol.source.Cluster({
+    distance: parseInt(30, 10),
+    source: source
+  });
+  waypoints_auto_layer.setSource(clusterSource)
 }
 
 /********************************
-        Waypoints Layer
+        Route Layer
 ********************************/
-var waypoints_source = new ol.source.Vector({
+var route_source = new ol.source.Vector({
   url: "/gpstrack",
   format: new ol.format.KML({extractStyles:false})
 })
 
 var route = new ol.layer.Vector({ 
-  source: waypoints_source,
-  style: waypointStyleFunction
+  source: route_source,
+  style: routeLineStyleFunction
 });
 
-waypoints_source.on('change', () => {
-  var features = waypoints_source.getFeatures().sort(featureSortingFunction)
-  autoLinkWaypoints(features, waypoints_links_layer)
+route_source.on('change', () => {
+  var features = route_source.getFeatures().sort(featureSortingFunction)
+  autoLinkWaypoints(features, waypoints_auto_layer)
 })
 
 function featureSortingFunction(f1, f2) {
@@ -148,42 +140,21 @@ var bing = new ol.layer.Tile({
 /********************************
         Map Interactions
 ********************************/
-var hoverInteraction = new ol.interaction.Select({
+/*var hoverInteraction = new ol.interaction.Select({
   condition: ol.events.condition.pointerMove,
-  layers:[route],
+  layers:[waypoints_auto_layer],
   style: waypointHoverStyleFunction
 });
-
+*/
 
 $(document).ready(function (){
-  /****************************************
-    Popup Configuration (need DOM Loaded)
-  ****************************************/
-  var container = document.getElementById('popup');
-  var content = document.getElementById('popup-content');
-  var closer = document.getElementById('popup-closer');
-
-  var overlay = new ol.Overlay({
-    element: container,
-    autoPan: true,
-    autoPanAnimation: {
-      duration: 250
-    }
-  });
-
-  closer.onclick = function() {
-    overlay.setPosition(undefined);
-    closer.blur();
-    return false;
-  };
 
   /********************************
             Map Creation
   ********************************/
   var map = new ol.Map({
     target: 'map',
-    layers: [ bing, waypoints_links_layer, route ],
-    overlays: [overlay],
+    layers: [ bing, waypoints_auto_layer, route ],
     controls: ol.control.defaults().extend([
       new ol.control.FullScreen()
     ]),
@@ -193,18 +164,7 @@ $(document).ready(function (){
    })
   });
 
-  map.addInteraction(hoverInteraction);
+  //map.addInteraction(hoverInteraction);
 
-  map.on('singleclick', function(e) {
-    var features = map.getFeaturesAtPixel(e.pixel)
-    if (features && features.length >= 1) {
-      var feature = features[0]
-      var coords = feature.getGeometry().getCoordinates();
-      content.innerHTML = 
-      '<h6>Etape #' + feature.get("index").trim() + ' : ' + feature.get("name") + '</h6>' + 
-      '<p>' + feature.get("description") + '</p>'
-      overlay.setPosition(coords);
-    }
-  });
 
 });
