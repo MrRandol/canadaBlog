@@ -119,6 +119,12 @@ server {
     try_files $uri $uri/ =404;
   }
 
+  location /gpstrack {
+    add_header 'Access-Control-Allow-Origin' '*';
+    add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS';
+    try_files /home/share/gps_tracker/gpslogger.kml =404;
+  }
+
   location = / {
     return 403;
   }

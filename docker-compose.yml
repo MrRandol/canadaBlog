@@ -19,6 +19,7 @@ services:
      - ${ROUTE_EDIT_DATA}:/home/share/route_edit:ro
      - ${STATIC_DATA_PATH}:/home/share/static:ro
      - ${PHOTO_GALLERIES_PATH}:/home/share/photos_galleries:ro
+     - ${GPS_LOGGER_PATH}:/home/share/gps_tracker/gpslogger.kml:ro
     environment:
      - NGINX_HOST=${BLOG_HOST}
      - KML_UPLOAD_PORT=${KML_UPLOAD_PORT}
