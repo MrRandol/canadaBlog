@@ -13,6 +13,7 @@ The main technologies involved are :
 - [Isso](https://posativ.org/isso/) : Comments server to self host (similar to disqus)
 - [Juicebox](https://www.juicebox.net/) : HTML5 Photo gallery library
 - [ReactJs](https://reactjs.org/) : Frontend library to create the route planning backoffice
+- [Openlayers](http://openlayers.org/) : Geographic library to display maps and process geographic data
 - [Docker](https://www.docker.com) : All services run inside containers
 - [Nginx](https://www.nginx.com) : The reverse proxy
 
@@ -20,27 +21,28 @@ The main technologies involved are :
 
 # Description of the services
 
-## Reverse Proxy
+## Nginx
 
-The main entry point. It consists of a simple nginx container which will redirect to the services
+The main entry point. It consists of a simple nginx container acting as a reverse proxy.
 
 ## Ghost
 
 The official [Ghost docker containter](https://hub.docker.com/_/ghost/). No real customisation here.
-Everything happens in the theme : casper-randol.
 
-## Casper Randol
+My overlay lives in the theme :
+
+### Casper Randol
 
 This is my fork of the default ghost theme [Casper](https://github.com/TryGhost/Casper)
 I changed it simply to fit my taste and what I wanted the blog to look and feel like.
 
 For strucure and documentation, the Ghost team did an amazing job, just hop on the Casper page and the [official documentation](https://themes.ghost.org/docs)
 
-There are 2 "features" added to the theme, mainly libraries headers for Isso and Juicebox.
+## Isso
 
-## Photos galleries
-
-This is simply a set of common js libraries to call and also a copy of the markdown page corresponding to the photo gallery.
+Based on [wonderfall's Isso](https://hub.docker.com/r/wonderfall/isso/). 
+Isso, similar to Disqus, is a comment service. The biggest difference is that you can easily self host it. 
+Also it accepts anonymous comments :]
 
 ## Maps
 
@@ -56,25 +58,23 @@ The route prevision map will allow to update on a dedicated and restricted backo
 
 The modules are the following :
 
-#### route_editor
+#### Route editor
 
-A *very simple* ReactJs app (I used react to be quicker since I know it - no proper need for Redux here) allowing to edit the planned route by adding/updating waypoints and their metadata ("title", description, etc ...) and upload the result as kml to the server.
+A *very simple* vanilla ReactJs app (no proper need for Redux here) allowing to edit the planned route by adding/updating waypoints and their metadata ("title", description, etc ...) and upload the result as kml to the server.
 
-When build, it is a collection of static data served by nginx.
+This is not a proper service as it is not run but simply compiled as a set of static resources exposed through the reverse proxy.
 
 > NOTE : This endpoint is designed to be restricted. I chose to do this in the reverse proxy by adding a simple http auth basic.
 
-The route editor is configured via env. it uses dotenv (and it's associated practices)
+The route editor is configured via env : it uses dotenv (and it's associated practices). 
 
-To use on development purpose, run `npm run start`. A .env.development file can be added to specify dev only value.
-For example :
+The following are configurations only used in development mode (`npm run start`) :
 
 ```
 PORT=3000 # Only used in development mode, specify the local port to start the app on
 ```
 
-To build a production ready app use `npm run build`. It will use .env file at the root of the node project (aka maps/route_editor). 
-
+To build a production ready app use `npm run build`. It will use the .env file. 
 The following are the desired variable when building the app :
 
 ```
@@ -84,8 +84,8 @@ REACT_APP_BING_LAYER='Road' # Layer. Can be one of 'Road', 'RoadOnDemand', 'Aeri
 REACT_APP_BING_KEY='<Your Bing map api key. see https://www.bingmapsportal.com/'
 
 # The route service communication
-REACT_APP_ROUTE_KML_URL # where to fetch the kml
-REACT_APP_ROUTE_KML_SAVE_URL # where to save the kml
+REACT_APP_ROUTE_KML_URL # where to fetch the kml (kml upload GET)
+REACT_APP_ROUTE_KML_SAVE_URL # where to save the kml (kml upload POST)
 # Warn : Since it is personal project, I do not take into account generic behavior. 
 # Hence http auth basic is enforced for the save url
 REACT_APP_ROUTE_KML_SAVE_USERNAME
@@ -94,41 +94,76 @@ REACT_APP_ROUTE_KML_SAVE_PASSWORD
 
 #### kml_upload
 
-Very small NodeJs/Express service to upload the route_editor resulting kml and give access to it in the route_visualization
+Very small NodeJs/Express service to upload the [route_edit](#Route-editor) resulting kml and give access to it in the [route_visualization](#Route-Visualization)
 
-As basic as it can be :
+It is as basic as it can be :
 
 You can *GET* /route to obtain the current kml
 You can *POST* /route with a JSON body containing a kml property.
 
 > NOTE : This endpoint is designed to be restricted for the POST request. I chose to do this in the reverse proxy.
 
+### Route follow up
 
-#### route_visualization
+This is a **planned feature** aiming to:
+- Extract position and format it to whatever the tools used should be the best
+- add in the same flavor as route visualization a page on the blog
 
-This component - as for the Photos Galleries - is not a service or an app but a page in the blog. 
+# Static Resources
+
+## Blog Pages
+
+### Route visualization
+
+This component - as for the [Photos Galleries](#Photos-Gallery) - is not a service or an app but a page in the blog. 
 The source can be found in map/blog_views/route_planning.html
 
 It is a "copy" of the route_edit map oriented on the visualization of the route waypoints. Nothing fancy, just a map with a base layer and a kml layer.
 
-### Route follow up
+### Photo Gallery
 
-This is a planned feature aiming to:
-- Extract position and format it to whatever the tools used should be the best
-- add in the same flavor as route visualization a page on the blog
+This is the content of the Photo Gallery page of the blog, allowing to version it.
+It calls a generated json file containing reference to galleries and proposes to switch between them.
+
+## Libraries 
+
+### Galleries
+
+This is simply a set of common js libraries from [Juicebox](https://www.juicebox.net/) to call, that are preconfigured and common to avoid repetition.
+
+### Maps
+
+A simple collection of [Openlayers](http://openlayers.org/) custom helpers (map creation, styles ...) to avoid having a too heavy blog page & allow versionning and reusability
 
 # What to do to install it
 
 Everything runs with docker (no proper docker images building since I do not have or plan to have a registry for this).
 
-Please note that if the images should work directly with the repo structure, I still use Jenkins on the back to "build" the app and deploy it to a proper centralized data folder.
+Please note that if the images should work directly with the repo structure, I still use Jenkins on the back to "build" the app and deploy it to a proper centralized data folder, so the "on the repo" run is not tested.
 
-* Please note that this is a heavy factorisation work in progress. It is very likely to change a lot in the coming time*
+## Preparation
 
-A simple docker-compose up -d will do the trick.
+### htpasswd
 
-A .env file is also necessary. Here are the expected parameters : 
+In order to have a http auth basic, you need to generate a htpasswd file : 
+https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/
 
+### dh param
+
+Used in nginx ssl configuration, you will need the dh param : 
+https://www.ibm.com/support/knowledgecenter/en/SSB27H_6.2.0/fa2ti_openssl_generate_dh_parms.html
+
+### Let's Encrypt
+
+You will need a certificate created for your domain and a renewal process.
+I followed this very well made tutorial : 
+https://www.humankode.com/ssl/how-to-set-up-free-ssl-certificates-from-lets-encrypt-using-docker-and-nginx
+
+### Folders
+
+Several folders are needed for each component. See below environment configuration for details.
+
+### Envirnment
 ```
 # GENERIC VALUES
 
@@ -170,11 +205,14 @@ ISSO_DB_FOLDER_HOST # host folder containing isso database
 ISSO_DB_FOLDER_CONTAINER # Container mount point to isso database
 ```
 
-NOTE :
-I am using a Jenkins in the background to take care of the following : 
+## Notes 
+
+### Jenkins
+
+I am using a Jenkins in the background to take care of the following  :
   - Build the app on push : build the docker images, build and copy route_edit app, copy docker definitions, nginx template to central storage point, restart containers
   - Automate let's encrypt certificate renewal (with certbot docker image)
   - Automate new photos galleries integration following juicebox format (cf scripts/photos_upload.sh) 
   - Make backups (cf scripts/backup.sh)
   
-This means I use another container to run nginx + docker, which use their own env definition.
+This is done by having a second column of services to mainly avoid collision between the two and allow full services restart control from jenkins (running docker control commands from docker container). 
