@@ -46,7 +46,7 @@ Also it accepts anonymous comments :]
 
 ## Maps
 
-The goal of the map components is to bring a gis flavor to the blog.
+The goal of the map components is to bring a [GIS](https://en.wikipedia.org/wiki/Geographic_information_system) flavor to the blog.
 
 There are 2 components planned :
 - a route prevision tool, to plan the trip and allow a previsualization of the travel
