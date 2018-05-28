@@ -1,0 +1,49 @@
+<section class="post-full-authors">
+    {{#foreach authors}}
+        <div class="author-card">
+            {{#if profile_image}}
+                <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
+            {{else}}
+                <span class="author-profile-image avatar-wrapper">{{> "icons/avatar"}}</span>
+            {{/if}}
+            <section class="author-card-content">
+                <h4 class="author-card-name"><a href="{{url}}">{{name}}</a></h4>
+                {{#if bio}}
+                    <p>{{bio}}</p>
+                {{else}}
+                    <p><a href="{{url}}">Plus de posts</a> de {{name}}.</p>
+                {{/if}}
+            </section>
+        </div>
+    {{/foreach}}
+</section>
+
+{{#contentFor "scripts"}}
+<script>
+// Adds delay to author card dropups to disappear. This gives enough
+// time for the user to interact with the author card while they move
+// the mouse from the avatar to the card. Also makes space for the
+// interacted avatar.
+$(document).ready(function () {
+
+    var hoverTimeout;
+
+    $('.author-list-item').hover(function(){
+        var $this = $(this);
+
+        clearTimeout(hoverTimeout);
+
+        $('.author-card').removeClass('hovered');
+        $(this).children('.author-card').addClass('hovered');
+
+    }, function() {
+        var $this = $(this);
+
+        hoverTimeout = setTimeout(function() {
+            $this.children('.author-card').removeClass('hovered');
+        }, 800);
+    });
+
+});
+</script>
+{{/contentFor}}

@@ -1,0 +1,32 @@
+<!-- OPENLAYERS -->
+<link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
+<script src="https://openlayers.org/en/v4.6.4/build/ol-debug.js" type="text/javascript"></script>
+
+<!-- CUSTOM IMPORTS -->
+<link rel="stylesheet" href="/static/maps/default_style.css" type="text/css">
+<script src="/static/maps/follow_utils.js" type="text/javascript"></script>
+
+<!-- HELP VISIBILITY TOGGLE -->
+<script type="text/javascript">
+  function onHelpClick(e) {
+    if (document.getElementById('help').style.display == 'none') {
+        document.getElementById('help').style.display = ''
+    } else {
+        document.getElementById('help').style.display = 'none'
+    }
+  }
+</script>
+
+<!-- OPENLAYERS HTML STRUCTURE -->
+<div id="fullscreen" class="fullscreen">
+    <div id="map" class="map"></div>
+</div>
+
+<!-- AIDE -->
+<hr/>
+<button onclick="onHelpClick()">AIDE</button>
+<br/>
+<i id="help" style="display:none">
+  Cliquez sur un numéro pour plus de détails sur l'étape. <br/>
+  Cliquez sur le bouton en haut à droite de la carte pour passer en plein écran.
+</i>

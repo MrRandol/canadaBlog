@@ -61,6 +61,20 @@ a {
     font-size: 1.1em;
 }
 
+.post-card-meta .author-card-content {
+    float: left;
+    margin-right: 15px;
+}
+
+.post-card-meta .author-card-content .author-profile-image {
+    display:inline-block; 
+    margin-right:0;
+}
+
+.post-full-authors .author-card {
+    margin-bottom: 15px;
+}
+
 /* 1. Global - Set up the things
 /* ---------------------------------------------------------- */
 

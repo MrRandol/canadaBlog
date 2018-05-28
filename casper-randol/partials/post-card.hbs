@@ -17,10 +17,23 @@
             </section>
         </a>
         <footer class="post-card-meta">
-            {{#if author.profile_image}}
-                <img class="author-profile-image" src="{{author.profile_image}}" alt="{{author.name}}" />
-            {{/if}}
-            <span class="post-card-author">{{author}}</span>
+
+            {{#foreach authors}}
+                <section class="author-card-content">
+                    <span class="author-profile-image">
+                    {{#if profile_image}}
+                        <a href="{{url}}" class="static-avatar"><img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" /></a>
+                    {{else}}
+                        <a href="{{url}}" class="static-avatar"><span class="author-profile-image avatar-wrapper">{{> "icons/avatar"}}</span></a>
+                    {{/if}}
+                    </span>
+
+                    <span class="author-name-tooltip">
+                        {{name}}
+                    </span>
+                </section>
+            {{/foreach}}
+
         </footer>
     </div>
 </article>

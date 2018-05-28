@@ -1,7 +1,7 @@
 {{!< default}}
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
-<p id="countContainer">Décollage dans : <span id="count"></span></p>
+<p id="countContainer"><span id="count"></span></p>
 
 <script>
     // Set the date we're counting down to
@@ -23,7 +23,7 @@ into the {body} of the default.hbs template --}}
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       // Display the result in the element with id="count"
-      document.getElementById("count").innerHTML = days + " jours " + hours + " heures "
+      document.getElementById("count").innerHTML = "D&eacute;collage dans : " + days + " jours " + hours + " heures "
       + minutes + " minutes " + seconds + " secondes ";
 
       // If the count down is finished, write some text 
@@ -55,7 +55,7 @@ into the {body} of the default.hbs template --}}
 </header>
 
 {{!-- The main content area --}}
-<main id="site-main" class="site-main outer" role="main">
+<main id="site-main" class="site-main outer">
     <div class="inner">
         <div class="post-feed">
             {{!-- Featured Posts (should not be a lot, ideally only 1) --}}

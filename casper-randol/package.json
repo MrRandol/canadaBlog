@@ -6,6 +6,10 @@
         "ghost": ">=1.2.0"
     },
     "license": "MIT",
+    "scripts": {
+      "dev": "gulp",
+      "zip": "gulp zip"
+    },
     "author": {
         "name": "Randol",
         "email": "maxime.choffat@gmail.com",

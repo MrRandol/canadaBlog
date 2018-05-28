@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{lang}}">
 <head>
 
     {{!-- Document Settings --}}
@@ -16,12 +16,12 @@
     {{!-- Styles'n'Scripts --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
 
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
 
 </head>
 <body class="{{body_class}}">
 
-        {{!-- This tag outputs SEO meta+structured data and other important settings --}}
-        {{ghost_head}}
     <div class="site-wrapper">
 
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
@@ -61,6 +61,9 @@
 
     {{#if pagination.pages}}
     <script>
+        // maxPages is a global variable that is needed to determine
+        // if we need to load more pages for the infinitescroll, or if
+        // we reached the last page already.
         var maxPages = parseInt('{{pagination.pages}}');
     </script>
     <script src="{{asset "js/infinitescroll.js"}}"></script>
