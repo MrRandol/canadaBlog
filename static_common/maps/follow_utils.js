@@ -3,64 +3,47 @@
 ********************************/
 const main_color = '#7d0808'
 const hover_color = '#7d0808'
-
-// Common
-const white_fill = new ol.style.Fill({
- color: 'rgba(255,255,255,0.7)'
-})
-
-// Normal Waypoint
-const waypoint_stroke = new ol.style.Stroke({
-  color: main_color,
-  width: 1.5
-})
-const waypoint_marker = new ol.style.Circle({
-  fill: white_fill,
-  stroke: waypoint_stroke,
-  radius: 5
-})
-
-// Hover Waypoint
-const hover_stroke = new ol.style.Stroke({
-  color: main_color,
-  width: 5
-})
-const hover_marker = new ol.style.Circle({
-  fill: new ol.style.Fill({color: '#ffdddd'}),
-  stroke: hover_stroke,
-  radius: 10
-})
-
-
+const marker = 'data:image/svg+xml;utf8,<svg width="384" height="512" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="#7d0808" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>';
+var styleCache = {};
 function waypointStyleFunction(feature) {
-  return [
-    new ol.style.Style({
-      image: waypoint_marker,
-      fill: white_fill,
-      stroke: waypoint_stroke,
-      zIndex: 1
-    })
-  ]
-}
+  var size = feature.get('features').length
+  var style = styleCache[size];
+  if (!style) {
+    if ( size > 1 ) {
+      style = new ol.style.Style({
+        image: new ol.style.Circle({
+          radius: 20,
+          /*stroke: new ol.style.Stroke({
+            color: main_color,
+            width: 4
+          }),*/
+          fill: new ol.style.Fill({
+            color: 'rgba(255, 255, 255, 0.8)'
+          })
+        }),
+        text: new ol.style.Text({
+          text: size.toString(),
+          font: 'bold 20px Open Sans,Calibri,sans-serif',
+          fill: new ol.style.Fill({
+            color: main_color,
+          })
+        })
+      });
+      styleCache[size] = style;
+    } else {
+      var style = new ol.style.Style({
+        image: new ol.style.Icon({
+          opacity: 1,
+          src: marker,
+          scale: 0.03,
+          anchor: [0.5, 1]
+        })
+      });
+    }
+  }
 
-function waypointHoverStyleFunction(feature) {
-  return [
-    new ol.style.Style({
-      image: hover_marker,
-      fill: white_fill,
-      stroke: hover_stroke,
-      zIndex: 100
-    })
-  ]
-}
 
-function routeLineStyleFunction(feature) {
-  return [
-    new ol.style.Style({
-      fill: white_fill,
-      stroke: waypoint_stroke
-    })
-  ]
+  return style;
 }
 
 /********************************
@@ -109,7 +92,15 @@ var route_source = new ol.source.Vector({
 
 var route = new ol.layer.Vector({ 
   source: route_source,
-  style: routeLineStyleFunction
+  style: new ol.style.Style({
+      fill: new ol.style.Fill({
+         color: 'rgba(255,255,255,0.7)'
+        }),
+      stroke: new ol.style.Stroke({
+        color: main_color,
+        width: 1.5
+      })
+    })
 });
 
 route_source.on('change', () => {
@@ -154,7 +145,7 @@ $(document).ready(function (){
   ********************************/
   var map = new ol.Map({
     target: 'map',
-    layers: [ bing, waypoints_auto_layer, route ],
+    layers: [ bing, route, waypoints_auto_layer ],
     controls: ol.control.defaults().extend([
       new ol.control.FullScreen()
     ]),
