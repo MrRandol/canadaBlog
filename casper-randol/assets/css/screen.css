@@ -727,7 +727,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
     display: none;
 }
 
-.kg-card-markdown {
+.kg-card-markdown, .kg-post {
     display: flex;
     flex-direction: column;
     align-items: center;
