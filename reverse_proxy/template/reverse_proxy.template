@@ -133,6 +133,6 @@ server {
   }
 
   location = / {
-    return 403;
+    return 301 https://$host/canada;
   }
 }
