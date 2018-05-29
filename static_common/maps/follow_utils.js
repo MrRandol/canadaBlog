@@ -3,16 +3,18 @@
 ********************************/
 const main_color = '#7d0808'
 const hover_color = '#7d0808'
-const marker = 'data:image/svg+xml;utf8,<svg width="384" height="512" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="#7d0808" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>';
+const marker = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg width="384" height="512" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -20 404 552"><path id="marker" fill="#7d0808" stroke="#fff" stroke-width="20" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>')
+const hover_marker = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg width="384" height="512" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -20 404 552"><path id="marker" fill="#fff" stroke="#7d0808" stroke-width="20" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>')
 var styleCache = {};
-function waypointStyleFunction(feature) {
+
+function waypointStyleFunction(feature, hover=false) {
   var size = feature.get('features').length
   var style = styleCache[size];
   if (!style) {
     if ( size > 1 ) {
       style = new ol.style.Style({
         image: new ol.style.Circle({
-          radius: 20,
+          radius: 25,
           /*stroke: new ol.style.Stroke({
             color: main_color,
             width: 4
@@ -34,16 +36,31 @@ function waypointStyleFunction(feature) {
       var style = new ol.style.Style({
         image: new ol.style.Icon({
           opacity: 1,
-          src: marker,
-          scale: 0.03,
-          anchor: [0.5, 1]
+          src: hover === true? hover_marker : marker,
+          scale: 0.04,
+          anchor: [0.5, 0.98]
         })
       });
+      if (hover === true && feature.get("features")[0] && feature.get("features")[0].get("date")) {
+          style.setText(new ol.style.Text({
+            font: '15px Open Sans,Calibri,sans-serif',
+            textAlign: 'center',
+            fill:  new ol.style.Fill({ color: main_color }),
+            text: feature.get("features")[0].get("date"),
+            textBaseline: "bottom",
+            backgroundFill:  new ol.style.Fill({ color: "#fff" }),
+            padding: [3, 5, 3, 5],
+            offsetY: -25
+          }))
+      }
+
     }
   }
-
-
   return style;
+}
+
+function waypointHoverStyleFunction(feature) {
+  return waypointStyleFunction(feature, true)
 }
 
 /********************************
@@ -68,15 +85,30 @@ function autoLinkWaypoints(features, waypoints_auto_layer) {
     coord = coordinates[index]
     name = "waypoint_"
     name = name.concat(index+1)
+    var date = new Date(coord[3]);
+
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+    var day = date.getDate();
+
+    if (day < 10) {
+      day = '0' + day;
+    }
+    if (month < 10) {
+      month = '0' + month;
+    }
+
+    var formattedDate = day + '/' + month + '/' + year
+
     source.addFeature(new ol.Feature({
       geometry: new ol.geom.Point([coord[0], coord[1], coord[2]]),
       name: name,
-      date: new Date(coord[3])
+      date: formattedDate
     }))
   }
 
   var clusterSource = new ol.source.Cluster({
-    distance: parseInt(30, 10),
+    distance: parseInt(40, 10),
     source: source
   });
   waypoints_auto_layer.setSource(clusterSource)
@@ -131,13 +163,6 @@ var bing = new ol.layer.Tile({
 /********************************
         Map Interactions
 ********************************/
-/*var hoverInteraction = new ol.interaction.Select({
-  condition: ol.events.condition.pointerMove,
-  layers:[waypoints_auto_layer],
-  style: waypointHoverStyleFunction
-});
-*/
-
 $(document).ready(function (){
 
   /********************************
@@ -155,7 +180,12 @@ $(document).ready(function (){
    })
   });
 
-  //map.addInteraction(hoverInteraction);
+  var hoverInteraction = new ol.interaction.Select({
+    condition: ol.events.condition.pointerMove,
+    layers:[waypoints_auto_layer],
+    style: waypointHoverStyleFunction,
+    hitTolerance: 10
+  });
 
-
+  map.addInteraction(hoverInteraction);
 });
