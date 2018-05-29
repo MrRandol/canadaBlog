@@ -75,6 +75,22 @@ a {
     margin-bottom: 15px;
 }
 
+#help-hr {
+    margin: 10px;
+}
+
+#help-button {
+    margin-bottom: 10px;
+}
+
+#help {
+    font-size: 0.85em;
+    font-style: italic;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 /* 1. Global - Set up the things
 /* ---------------------------------------------------------- */
 
