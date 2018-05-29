@@ -6,45 +6,15 @@ const hover_color = '#7d0808'
 
 // Common
 const white_fill = new ol.style.Fill({
- color: 'rgba(255,255,255,0.7)'
+ color: 'rgba(255,255,255,0.9)'
 })
-const text_stroke = new ol.style.Stroke({
-  color: '#ffffff', 
-  width: 2
-})
-
-// Normal Waypoint
-const text_fill = new ol.style.Fill({ color: main_color })
-const waypoint_stroke = new ol.style.Stroke({
-  color: main_color,
-  width: 1.5
-})
-const waypoint_marker = new ol.style.Circle({
-  fill: white_fill,
-  stroke: waypoint_stroke,
-  radius: 13
-})
-
-// Hover Waypoint
-const text_hover_fill = new ol.style.Fill({ color: main_color })
-const hover_stroke = new ol.style.Stroke({
-  color: main_color,
-  width: 5
-})
-const hover_marker = new ol.style.Circle({
-  fill: new ol.style.Fill({color: '#ffdddd'}),
-  stroke: hover_stroke,
-  radius: 16
-})
-
 
 function textFromFeature(feature, hover = false) {
-  var font_size = hover ? "23px" : "17px"
+  var font_size = hover ? "20px" : "17px"
   return new ol.style.Text({
-    font: font_size + ' Open Sans,Calibri,sans-serif',
+    font: 'bold ' + font_size + ' Open Sans,Calibri,sans-serif',
     textAlign: 'center',
-    fill: text_fill,
-    stroke: text_stroke,
+    fill: new ol.style.Fill({ color: main_color }),
     text: "" + feature.get("index")
   })
 }
@@ -52,11 +22,16 @@ function textFromFeature(feature, hover = false) {
 function waypointStyleFunction(feature) {
   return [
     new ol.style.Style({
-      image: waypoint_marker,
-      fill: white_fill,
-      stroke: waypoint_stroke,
       zIndex: 1,
-      text: textFromFeature(feature)
+      text: textFromFeature(feature),
+      image: new ol.style.Circle({
+        fill: white_fill,
+        stroke: new ol.style.Stroke({
+          color: main_color,
+          width: 0.5
+        }),
+        radius: 17
+      })
     })
   ]
 }
@@ -64,11 +39,16 @@ function waypointStyleFunction(feature) {
 function waypointHoverStyleFunction(feature) {
   return [
     new ol.style.Style({
-      image: hover_marker,
-      fill: white_fill,
-      stroke: hover_stroke,
       zIndex: 100,
-      text: textFromFeature(feature, true)
+      text: textFromFeature(feature, true),
+      image: new ol.style.Circle({
+        radius: 20,
+        fill: new ol.style.Fill({color: '#ffdddd'}),
+        stroke: new ol.style.Stroke({
+          color: main_color,
+          width: 2
+        })
+      })
     })
   ]
 }
@@ -77,7 +57,10 @@ function routeLineStyleFunction(feature) {
   return [
     new ol.style.Style({
       fill: white_fill,
-      stroke: waypoint_stroke
+      stroke: new ol.style.Stroke({
+        color: main_color,
+        width: 2
+      })
     })
   ]
 }
@@ -204,6 +187,7 @@ $(document).ready(function (){
       var coords = feature.getGeometry().getCoordinates();
       content.innerHTML = 
       '<h6>Etape #' + feature.get("index").trim() + ' : ' + feature.get("name") + '</h6>' + 
+      '<hr style="margin:0;"/>' +
       '<p>' + feature.get("description") + '</p>'
       overlay.setPosition(coords);
     }
