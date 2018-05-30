@@ -18,7 +18,7 @@ function change_gallery() {
 
 function init_gallery(gallery_name, containerId  ='juicebox-container') {
     new juicebox({
-        baseUrl: '/photos_galleries/' + gallery_name,
+        baseUrl: '/photos_galleries/',
         configUrl: '/photos_galleries/' + gallery_name + '/config.xml',
         containerId: containerId,
         galleryWidth: '100%',
