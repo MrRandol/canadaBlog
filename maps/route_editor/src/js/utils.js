@@ -13,8 +13,8 @@ export function saveRoute(kml) {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': 'Basic ' + new Buffer(username + ":" + password).toString('base64')
     },
+    "credentials": "include",
     body:JSON.stringify({
       kml : kml
     })
