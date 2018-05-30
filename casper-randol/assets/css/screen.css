@@ -75,6 +75,12 @@ a {
     margin-bottom: 15px;
 }
 
+.post-header-separator {
+    width: 85%;
+    margin: auto;
+    border-bottom: 1px dotted grey;
+}
+
 #help-hr {
     margin: 10px;
 }
@@ -89,6 +95,58 @@ a {
     padding: 20px 10px;
     margin-bottom: 10px;
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.post-full {
+    background: color(var(--post-background-color) a(90%));
+}
+
+
+.jb-classifier-layer {
+    float: right;
+}
+.jb-caption-title {
+    float: left;
+}
+#isso-thread {
+  border-top : 1px dotted grey;
+  padding: 0 15px;
+  margin: 0;
+}
+
+#isso-thread h4 {
+  font-size: 1em;
+  margin-left: 15px;
+}
+
+#isso-thread input[name="website"] { 
+  display:none;
+}
+
+#isso-thread .textarea-wrapper {
+  margin-top: 15px;
+}
+
+#isso-thread .auth-section {
+  margin-top: 15px;
+}
+
+#isso-thread .post-action {
+  margin-top: 15px;
+  float: none;
+}
+
+#isso-thread .input-wrapper {
+  display: inline;
+  margin-right: 15px;
+}
+
+#isso-thread #isso-root {
+  border-top: 1px dotted grey;
+}
+
+#isso-root {
+    padding: 0 15px 15px 15px;
 }
 
 /* 1. Global - Set up the things
@@ -692,7 +750,6 @@ The first (most recent) post in the list is styled to be bigger than the others 
     font-family: var(--font-family-text);
     font-size: 2.2rem;
     line-height: 1.6em;
-    background: color(var(--post-background-color) a(95%));
 }
 
 @media (max-width: 1170px) {
@@ -704,34 +761,6 @@ The first (most recent) post in the list is styled to be bigger than the others 
     .post-full-content {
         font-size: 1.9rem;
     }
-}
-
-.post-full-content:before {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: -5px;
-    z-index: -1;
-    display: block;
-    width: 20px;
-    height: 200px;
-    background: rgba(39,44,49,0.15);
-    filter: blur(5px);
-    transform: rotate(-5deg);
-}
-
-.post-full-content:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    right: -5px;
-    z-index: -1;
-    display: block;
-    width: 20px;
-    height: 200px;
-    background: rgba(39,44,49,0.15);
-    filter: blur(5px);
-    transform: rotate(5deg);
 }
 
 .no-image .post-full-content {
@@ -1472,7 +1501,6 @@ Usage (In Ghost editor):
     margin: 0 0 0 20px;
     font-size: 1.6rem;
     line-height: 1em;
-    letter-spacing: -1px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }

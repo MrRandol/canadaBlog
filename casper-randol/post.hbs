@@ -9,72 +9,42 @@ into the {body} of the default.hbs template --}}
     </div>
     <script src="/static/galleries/juicebox.js"></script>
     <script src="/static/galleries/custom_galleries.js"></script>
-    <style>
-        .jb-classifier-layer {
-            float: right;
-        }
-        .jb-caption-title {
-            float: left;
-        }
-        #isso-thread {
-          border-top : 1px solid grey;
-        }
-
-
-        #isso-thread h4 {
-          font-size: 1em;
-        }
-
-        #isso-thread input[name="website"] { 
-          display:none;
-        }
-
-        #isso-thread .textarea-wrapper {
-          margin-top: 15px;
-        }
-
-        #isso-thread .auth-section {
-          margin-top: 15px;
-        }
-
-        #isso-thread .post-action {
-          margin-top: 15px;
-          float: none;
-        }
-
-        #isso-thread .input-wrapper {
-          display: inline;
-          margin-right: 15px;
-        }
-
-        #isso-thread #isso-root {
-          border-top: 1px dotted grey;
-        }
-    </style>
 </header>
 
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
+
+{{#if feature_image}}
+<main id="site-main" class="site-main outer" style="
+    background-image: url({{feature_image}});
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    ">
+{{else}}
 <main id="site-main" class="site-main outer">
+{{/if}}
+
     <div class="inner">
 
         <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
 
             <header class="post-full-header">
-                <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMMM YYYY"}}</time>
-                    {{#primary_tag}}
-                        <span class="date-divider">/</span> <a href="{{url}}">{{name}}</a>
-                    {{/primary_tag}}
-                </section>
-                <h1 class="post-full-title">{{title}}</h1>
+                <div class="header-full-wrapper">
+                    <section class="post-full-meta">
+                        <time class="post-full-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMMM YYYY"}}</time>
+                        {{#primary_tag}}
+                            <span class="date-divider">/</span> <a href="{{url}}">{{name}}</a>
+                        {{/primary_tag}}
+                    </section>
+                    <h1 class="post-full-title">{{title}}</h1>
+                </div>
             </header>
 
-            {{#if feature_image}}
-            <figure class="post-full-image" style="background-image: url({{feature_image}})">
-            </figure>
-            {{/if}}
+            <section class="post-header-separator">
+            </section>
 
             <section class="post-full-content">
                 {{content}}
@@ -96,7 +66,7 @@ into the {body} of the default.hbs template --}}
             </footer>
 
             <script data-isso="/isso" data-isso-css="true" data-isso-lang="fr" data-isso-require-email="false" data-isso-avatar="false" data-isso-require-author="true" data-isso-vote="false" src="/isso/js/embed.min.js"></script>
-            <section id="isso-thread"></section>
+            <section style="padding: 0 15px;" id="isso-thread"></section>
 
         </article>
 
@@ -106,10 +76,11 @@ into the {body} of the default.hbs template --}}
 {{!-- Links to Previous/Next posts --}}
 <aside class="read-next outer">
     <div class="inner">
-        <div class="read-next-feed">
-            {{#if primary_tag}}
-            {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}}
-                {{#if related_posts}}
+
+        {{#if primary_tag}}
+        {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}}
+            {{#if related_posts}}
+            <div class="read-next-feed">
                 <article class="read-next-card"
                     {{#if ../primary_tag.feature_image}}
                         style="background-image: url({{../primary_tag.feature_image}})"
@@ -136,21 +107,24 @@ into the {body} of the default.hbs template --}}
                         <a href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='Pas de post' singular='% post' plural='Voir tous les % posts'}} →</a>
                     </footer>
                 </article>
-                {{/if}}
-            {{/get}}
+            </div>
             {{/if}}
+        {{/get}}
+        {{/if}}
 
-            {{!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs --}}
-            {{#next_post}}
-                {{> "post-card"}}
-            {{/next_post}}
+        {{!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs --}}
+        {{#next_post}}
+            <div class="read-next-feed">
+            {{> "post-card"}}
+            </div>
+        {{/next_post}}
 
-            {{!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs --}}
-            {{#prev_post}}
-                {{> "post-card"}}
-            {{/prev_post}}
-
-        </div>
+        {{!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs --}}
+        {{#prev_post}}
+            <div class="read-next-feed">
+            {{> "post-card"}}
+            </div>
+        {{/prev_post}}
     </div>
 </aside>
 
