@@ -85,9 +85,9 @@ server {
   location /route_edit {
     auth_basic "Restricted area";
     auth_basic_user_file /etc/nginx/htpasswd/.htpasswd; 
-    root /home/share/route_edit;
+    alias /home/share/route_edit;
     index index.html;
-    try_files $uri $uri/ /route_edit/index.html;
+    try_files $uri $uri/ /route_edit/index.html =404;
   }
 
   location = /route {
