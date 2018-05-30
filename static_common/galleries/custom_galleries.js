@@ -6,6 +6,9 @@ function initialize_select(galleries) {
         opt.value = galleries[i].name;
         sel.appendChild(opt);
     }
+    var loader = document.getElementById('gallery-loader');
+    loader.style.display = 'none'
+    sel.style.display = 'block'
 }
 
 function change_gallery() {
@@ -15,8 +18,8 @@ function change_gallery() {
 
 function init_gallery(gallery_name, containerId  ='juicebox-container') {
     new juicebox({
-        baseUrl: '/photos_gallery/' + gallery_name,
-        configUrl: '/photos_gallery/' + gallery_name + '/config.xml',
+        baseUrl: '/photos_galleries/' + gallery_name,
+        configUrl: '/photos_galleries/' + gallery_name + '/config.xml',
         containerId: containerId,
         galleryWidth: '100%',
         galleryHeight: '100%',
