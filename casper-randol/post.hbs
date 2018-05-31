@@ -65,9 +65,10 @@ into the {body} of the default.hbs template --}}
 
             </footer>
 
+            {{^has tag="no_comment"}}
             <script data-isso="/isso" data-isso-css="true" data-isso-lang="fr" data-isso-require-email="false" data-isso-avatar="false" data-isso-require-author="true" data-isso-vote="false" src="/isso/js/embed.min.js"></script>
             <section style="padding: 0 15px;" id="isso-thread"></section>
-
+            {{/has}}
         </article>
 
     </div>
