@@ -236,8 +236,8 @@ body {
     padding-top: 12px;
     padding-bottom: 12px;
     color: var(--header-text-color);
-    background: var(--header-footer-background) 50%;
-    background-size: cover;
+   /* background: var(--header-footer-background) 50%;
+    background-size: cover;*/
 }
 
 .site-header:before {
