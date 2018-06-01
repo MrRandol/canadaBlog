@@ -53,3 +53,4 @@ services:
     environment:
       - UID=${ISSO_UID}
       - GID=${ISSO_GID}
+    command: sh -c "apk update && apk add postfix && apk add mailx && postfix start && run.sh"
