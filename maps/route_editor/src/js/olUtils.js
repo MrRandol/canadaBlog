@@ -39,7 +39,7 @@ export function createMap() {
       ]),
       target: 'map',
       view: new ol.View({
-        center: [-11000000, 7800000],
+        center: [-11000000, 7600000],
         zoom: 4
       })
     });
@@ -59,7 +59,7 @@ export function createMap() {
       }
     })
 
-    var hoverInteraction = new ol.interaction.Select({
+    new ol.interaction.Select({
         condition: ol.events.condition.pointerMove,
         layers:[drawing_route]
     });

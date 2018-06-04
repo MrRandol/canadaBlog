@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Row, Input, Button } from 'react-materialize'
+import { Icon, Input, Button } from 'react-materialize'
 
 import {handleFeatureAction} from './olUtils.js'
 
@@ -10,7 +10,8 @@ class Waypoint extends Component {
     super(props)
 
     this.state = {
-      isDeleting: false
+      isDeleting: false,
+      collapsed: false
     }
   }
 
@@ -33,64 +34,70 @@ class Waypoint extends Component {
   render() {
 
     var features_length = this.props.layer.getSource().getFeatures().length
+    var feature_index = this.props.feature.get("index")
     var feature_name = this.props.feature.get("name")
     var feature_description = this.props.feature.get("description")
+    var form_class = this.state.collapsed ? "waypoint-form collapsed" : "waypoint-form"
 
     return (
-      <Row>
-        <Input 
-          s={6} 
-          label="Waypoint name" 
-          defaultValue={feature_name} 
-          onChange={(e, value) => {this.props.feature.set("name", value)}}
-        />
-        <Input 
-          type="number" 
-          label="Index"
-          min="0" 
-          max={features_length} 
-          defaultValue={this.props.feature.get("index")}
-          onChange={(e, value) => {this.changeIndex(value)}}
-        />
+      <div className="waypoint-wrapper">
+        <div className="waypoint-header">
+          <span className="waypoint-index">#{feature_index}</span>
+          <span className="waypoint-name"> {feature_name}</span>
+          <div className="waypoint-collapse" onClick={() => {this.setState({collapsed: !this.state.collapsed})}}><Icon>{ this.state.collapsed ? "arrow_drop_up" : "arrow_drop_down"}</Icon></div>
+        </div>
 
-        <Input 
-          s={12} 
-          label="Waypoint description"
-          type='textarea'
-          defaultValue={feature_description} 
-          onChange={(e, value) => {this.props.feature.set("description", value)}}
-        />
+        <div className={form_class}>
 
-        {this.state.isDeleting ? (
-          <div>
-            <Button 
-              className="button-confirm-delete-waypoint light-green darken-2 scale-transition scale-in scale-out" 
-              onClick={this.doDelete.bind(this)} 
-              floating
-              waves='light' 
-              icon='done' 
-            />
-            <Button 
-              className="button-cancel-delete-waypoint red darken-4 scale-transition scale-in scale-out" 
-              onClick={this.cancelDelete.bind(this)} 
-              floating
-              waves='light' 
-              icon='pan_tool'
+          <div className="waypoint-name-input">
+            <Input 
+              s={6} 
+              label="Waypoint name" 
+              defaultValue={feature_name} 
+              onChange={(e, value) => {this.props.feature.set("name", value)}}
             />
           </div>
-        ) : (
-          <Button 
-            className="button-delete-waypoint red darken-4 scale-transition scale-in scale-out" 
-            onClick={this.startDeletion.bind(this)} 
-            floating 
-            waves='light' 
-            icon='delete' 
-          />
-        )}
 
+          <div className="waypoint-description-input">
+            <Input 
+              s={12} 
+              label="Waypoint description"
+              type='textarea'
+              defaultValue={feature_description} 
+              onChange={(e, value) => {this.props.feature.set("description", value)}}
+            />
+          </div>
 
-
-      </Row>
+          {this.state.isDeleting ? (
+            <div>
+              <Button 
+                className="button-cancel-delete-waypoint scale-transition scale-in scale-out" 
+                onClick={this.cancelDelete.bind(this)} 
+                floating
+                waves='light' 
+                icon='cancel'
+                style={{backgroundColor: "#7d0808", marginRight: "5px"}}
+              />
+              <Button 
+                className="button-confirm-delete-waypoint light-green darken-2 scale-transition scale-in scale-out" 
+                onClick={this.doDelete.bind(this)} 
+                floating
+                waves='light' 
+                icon='done' 
+              />
+            </div>
+          ) : (
+            <Button 
+              className="button-delete-waypoint scale-transition scale-in scale-out" 
+              onClick={this.startDeletion.bind(this)} 
+              floating 
+              waves='light' 
+              icon='delete' 
+              style={{backgroundColor: "#7d0808"}}
+            />
+          )}
+        </div>
+      </div>
     );
   }
 }

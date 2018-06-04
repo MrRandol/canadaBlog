@@ -22,8 +22,127 @@ body {
 }
 
 #button-save {
-  float: right;
-  bottom: 10px;
+  top: 10px;
   position: absolute;
-  right: 20px;
+  left: 45%;
+  width: 10%;
+  border-radius: 5px;
+  line-height: 56px;
+  vertical-align: middle;
+  background-color: #7d0808;
+}
+
+#button-save:hover {
+  background-color: #C40C0C;
+}
+
+#button-save-text {
+  display: inline-block;
+  height: 56px;
+  line-height: 56px;
+  vertical-align: middle;
+  margin-top: -15px;
+  margin-left: 15px;
+}
+
+.route-list {
+  background: lightgray;
+  padding: 5px;
+}
+
+.waypoint {
+  user-select: none;
+  padding: 10px;
+  margin: 0 0 5px 0;
+  background: #F6F6F6;
+}
+
+.waypoint-form {
+  transition: all 2s;
+  -webkit-transition: all 2s;
+}
+
+.waypoint:hover {
+  border: 1px solid #7d0808;
+}
+
+.waypoint.dragging {
+  background: rgba(125, 8, 8, 0.7);
+}
+
+.waypoint-header {
+  
+}
+
+.waypoint-wrapper {
+
+}
+
+.waypoint-index {
+  font-size: 1em;
+  color: #F6F6F6;
+  border-radius: 8px 5px 8px 5px;
+  background: #7d0808;
+  padding: 5px;
+  letter-spacing: 2px;
+}
+
+.waypoint-name {
+  font-weight: bold;
+  font-size: 1em;
+  color: #2B2B2B;
+}
+
+.waypoint-collapse {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #7d0808;
+  color: #F6F6F6;
+  text-align: center;
+  margin-top: -4px;
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+}
+
+.waypoint-collapse:hover {
+  background-color: #C40C0C;
+}
+
+.waypoint-collapse > i {
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+.waypoint-form {
+  height: 0;
+  opacity: 0;
+  -webkit-transition: all 0.5s; /* Safari */
+  transition: all 0.5s;
+}
+
+.waypoint-form div {
+  display: none;
+}
+
+.waypoint-form.collapsed {
+  height: 250px;
+  padding: 25px 10px 10px 10px;
+  display: block;
+  opacity: 1;
+  -webkit-transition: all 0.5s; /* Safari */
+  transition: all 0.5s;
+}
+
+.waypoint-form.collapsed div {
+  display: block;
+}
+
+.waypoint-description-input {
+  margin-top: 2rem;
+}
+
+.waypoint-name-input .input-field, .waypoint-name-input .input-field > input {
+  margin: 0;
 }

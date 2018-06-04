@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import Route from './Route'
 
-import { Button } from 'react-materialize'
+import { Button, Icon } from 'react-materialize'
 
-import {createMap, generateKmlFromFeatures} from './olUtils.js'
+import {createMap, generateKmlFromFeatures, featureSortingFunction} from './olUtils.js'
 import {saveRoute} from './utils.js'
 import {routePlacemarkHoverStyleFunction} from './style.js'
 
@@ -53,12 +53,15 @@ class App extends Component {
   }
 
   render() {
+
+    var layer = this.drawing_route_layer
+    var features = layer ? layer.getSource().getFeatures().sort(featureSortingFunction) : []
     return (
       <div>
         <div className="map" id="map"></div>
         <div id="route-list">
-          <Route layer={this.drawing_route_layer} waypointHoverCallback={this.handleToggleFeatureOver.bind(this)}/>
-          <Button id="button-save" onClick={this.doSaveRoute.bind(this)} floating large style={{"backgroundColor": "#7d0808"}} waves='light' icon='save' />
+          <Route layer={layer} features={features} waypointHoverCallback={this.handleToggleFeatureOver.bind(this)}/>
+          <Button id="button-save" onClick={this.doSaveRoute.bind(this)} floating large waves='light' ><Icon>save</Icon><span id="button-save-text"> SAVE </span></Button>
         </div>
       </div>
     );
