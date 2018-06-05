@@ -7,6 +7,27 @@ body {
   width: 100vw;
 }
 
+div.toast {
+  margin-top: 0;
+  min-height: unset;
+  padding: 0;
+}
+
+.ko-toast, .ok-toast {
+  display: inline-block;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 3px;
+}
+
+.ko-toast {
+  background-color: #7d0808;
+}
+
+.ok-toast {
+  background-color: #2e7d32;
+}
+
 #route-list {
   overflow-y: auto;
   height: 40vh;

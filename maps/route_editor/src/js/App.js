@@ -43,11 +43,15 @@ class App extends Component {
 
   doSaveRoute() {
     saveRoute(generateKmlFromFeatures(this.state.features))
-    .then(() => {
-      window.Materialize.toast('Saved !', 4000)
+    .then((response) => {
+      if (response.status === 200) {
+        window.Materialize.toast('<span class="ok-toast">Saved !</span>', 4000)
+      } else {
+        window.Materialize.toast('<span class="ko-toast">Error while saving :(</span>', 4000)
+      }
     })
     .catch((e) => {
-      window.Materialize.toast('Error while saving :(', 4000)
+      window.Materialize.toast('<span class="ko-toast">Error while saving :(</span>', 4000)
       console.log(e)
     })
   }
