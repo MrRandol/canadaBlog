@@ -17,7 +17,8 @@ class App extends Component {
     this.drawing_route_layer = null
 
     this.state = {
-      features: []
+      features: [],
+      saving: false
     }
   }
 
@@ -42,17 +43,21 @@ class App extends Component {
   }
 
   doSaveRoute() {
-    saveRoute(generateKmlFromFeatures(this.state.features))
-    .then((response) => {
-      if (response.status === 200) {
-        window.Materialize.toast('<span class="ok-toast">Saved !</span>', 4000)
-      } else {
+    this.setState({saving: true}, function () {    
+      saveRoute(generateKmlFromFeatures(this.state.features))
+      .then((response) => {
+        this.setState({saving: false})
+        if (response.status === 200) {
+          window.Materialize.toast('<span class="ok-toast">Saved !</span>', 4000)
+        } else {
+          window.Materialize.toast('<span class="ko-toast">Error while saving :(</span>', 4000)
+        }
+      })
+      .catch((e) => {
+        this.setState({saving: false})
         window.Materialize.toast('<span class="ko-toast">Error while saving :(</span>', 4000)
-      }
-    })
-    .catch((e) => {
-      window.Materialize.toast('<span class="ko-toast">Error while saving :(</span>', 4000)
-      console.log(e)
+        console.log(e)
+      })
     })
   }
 
@@ -65,7 +70,7 @@ class App extends Component {
         <div className="map" id="map"></div>
         <div id="route-list">
           <Route layer={layer} features={features} waypointHoverCallback={this.handleToggleFeatureOver.bind(this)}/>
-          <Button id="button-save" onClick={this.doSaveRoute.bind(this)} floating large waves='light' ><Icon>save</Icon><span id="button-save-text"> SAVE </span></Button>
+          <Button id="button-save" disabled={this.state.saving} onClick={this.doSaveRoute.bind(this)} floating large waves='light' ><Icon>save</Icon><span id="button-save-text"> SAVE </span></Button>
         </div>
       </div>
     );

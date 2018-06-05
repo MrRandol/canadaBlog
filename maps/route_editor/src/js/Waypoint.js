@@ -33,7 +33,6 @@ class Waypoint extends Component {
 
   render() {
 
-    var features_length = this.props.layer.getSource().getFeatures().length
     var feature_index = this.props.feature.get("index")
     var feature_name = this.props.feature.get("name")
     var feature_description = this.props.feature.get("description")
