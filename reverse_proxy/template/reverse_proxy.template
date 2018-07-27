@@ -55,6 +55,9 @@ server {
   ssl_stapling on;
   ssl_stapling_verify on;
   resolver 8.8.8.8;
+  
+  # Max upload body size
+  client_max_body_size 50m;
 
   location ^~ /.well-known/acme-challenge {
       root   /usr/share/nginx/html;
