@@ -15,6 +15,7 @@ services:
      - ${NGINX_HTPASSWD_PATH}:/etc/nginx/htpasswd/.htpasswd:ro
      - ${NGINX_DH_PARAM_PATH}/:/etc/nginx/dhparam/dhparam-2048.pem:ro
      - ${LETS_ENCRYPT_FULLCHAIN_PATH}:/etc/letsencrypt/live/${BLOG_HOST}/fullchain.pem:ro
+     - ${LETS_ENCRYPT_WELL_KNOW}:/usr/share/nginx/html:ro
      - ${LETS_ENCRYPT_PRIVKEY_PATH}:/etc/letsencrypt/live/${BLOG_HOST}/privkey.pem:ro
      - ${ROUTE_EDIT_DATA}:/home/share/route_edit:ro
      - ${STATIC_DATA_PATH}:/home/share/static:ro
