@@ -69,7 +69,7 @@ echo "[" > ${PHOTOS_GALLERIES_FOLDER}/common/galleries.json
 for GALLERY in $(find ${PHOTOS_GALLERIES_FOLDER} -type d 2> /dev/null); do
   echo ">>> Processing gallery ${GALLERY}"
 
-  PHOTOS=$(find ${GALLERY} -type f -maxdepth 1 -iname "*.png" -o -iname "*.jpg" -iname "*.jpeg" 2> /dev/null | sort)
+  PHOTOS=$(find ${GALLERY} -type f -maxdepth 1 -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" 2> /dev/null | sort)
 
   if [ -z "${PHOTOS}" ]
   then
