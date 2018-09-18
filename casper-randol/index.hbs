@@ -1,39 +1,6 @@
 {{!< default}}
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
-<p id="countContainer"><span id="count"></span></p>
-<script>
-  // Set the date we're counting down to
-  var countDownDate = new Date("Aug 27, 2018 12:45:00").getTime();
-
-  // Update the count down every 1 second
-  var x = setInterval(function() {
-
-    // Get todays date and time
-    var now = new Date().getTime();
-
-    // Find the distance between now an the count down date
-    var distance = countDownDate - now;
-
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Display the result in the element with id="count"
-    document.getElementById("count").innerHTML = "D&eacute;collage dans : " + days + " jours " + hours + " heures "
-    + minutes + " minutes " + seconds + " secondes ";
-
-    // If the count down is finished, write some text 
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("countContainer").remove();
-    } else {
-      document.getElementById("countContainer").style.display = 'block';
-    }
-  }, 1000);
-</script>
 
 <div class="site-wrapper" {{#if @blog.cover_image}}
 style="background-image: url({{@blog.cover_image}});
@@ -65,15 +32,10 @@ style="background-image: url({{@blog.cover_image}});
   <main id="site-main" class="site-main outer">
       <div class="inner">
           <div class="post-feed">
-              {{!-- Featured Posts (should not be a lot, ideally only 1) --}}
-              {{#get "posts" filter="featured:true" include="tags,author" as |featuredPosts|}}
-                  {{#foreach featuredPosts as |post|}}
-                      {{> "post-card"}}
-                  {{/foreach}}
-              {{/get}}
+           
 
               {{!-- Other posts (not featured) --}}
-              {{#get "posts" filter="featured:false" include="tags,author" as |nonFeaturedPosts|}}
+              {{#get "posts" include="tags,author" page=pagination.page as |nonFeaturedPosts|}}
                   {{#foreach nonFeaturedPosts as |post|}}
                       {{> "post-card"}}
                   {{/foreach}}
